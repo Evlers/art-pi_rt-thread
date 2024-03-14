@@ -1,0 +1,5 @@
+menu "External Libraries"
+
+    source "$RTT_DIR/../libraries/wifi-host-driver/Kconfig"
+
+endmenu
