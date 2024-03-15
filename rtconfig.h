@@ -26,7 +26,7 @@
 /* kservice optimization */
 
 #define RT_KSERVICE_USING_STDLIB
-#define RT_DEBUG
+#define RT_USING_DEBUG
 
 /* Inter-Thread communication */
 
@@ -38,7 +38,6 @@
 
 /* Memory Management */
 
-#define RT_PAGE_MAX_ORDER 11
 #define RT_USING_MEMPOOL
 #define RT_USING_MEMHEAP
 #define RT_MEMHEAP_FAST_MODE
@@ -52,7 +51,7 @@
 #define RT_USING_CONSOLE
 #define RT_CONSOLEBUF_SIZE 128
 #define RT_CONSOLE_DEVICE_NAME "uart4"
-#define RT_VER_NUM 0x50000
+#define RT_VER_NUM 0x50002
 #define RT_USING_CACHE
 #define RT_USING_HW_ATOMIC
 #define RT_USING_CPU_FFS
@@ -79,13 +78,17 @@
 #define MSH_USING_BUILT_IN_COMMANDS
 #define FINSH_USING_DESCRIPTION
 #define FINSH_ARG_MAX 10
-#define FINSH_USING_SMART_COMPLETE
+#define FINSH_USING_OPTION_COMPLETION
+
+/* DFS: device virtual file system */
+
 #define RT_USING_DFS
 #define DFS_USING_POSIX
 #define DFS_USING_WORKDIR
+#define DFS_FD_MAX 16
+#define RT_USING_DFS_V1
 #define DFS_FILESYSTEMS_MAX 4
 #define DFS_FILESYSTEM_TYPES_MAX 4
-#define DFS_FD_MAX 16
 #define RT_USING_DFS_ELMFAT
 
 /* elm-chan's FatFs, Generic FAT Filesystem Module */
@@ -168,7 +171,14 @@
 
 /* C/C++ and POSIX layer */
 
-#define RT_LIBC_DEFAULT_TIMEZONE 8
+/* ISO-ANSI C layer */
+
+/* Timezone and Daylight Saving Time */
+
+#define RT_LIBC_USING_LIGHT_TZ_DST
+#define RT_LIBC_TZ_DEFAULT_HOUR 8
+#define RT_LIBC_TZ_DEFAULT_MIN 0
+#define RT_LIBC_TZ_DEFAULT_SEC 0
 
 /* POSIX (Portable Operating System Interface) layer */
 
@@ -248,6 +258,10 @@
 /* Utilities */
 
 #define RT_USING_RYM
+#define RT_USING_RESOURCE_ID
+
+/* RT-Thread Utestcases */
+
 
 /* RT-Thread online packages */
 
@@ -262,19 +276,9 @@
 #define PKG_USING_PAHOMQTT_LATEST
 #define PKG_USING_WEBCLIENT
 #define WEBCLIENT_USING_FILE_DOWMLOAD
-#define WEBCLIENT_NOT_USE_TLS
+#define WEBCLIENT_USING_MBED_TLS
 #define PKG_USING_WEBCLIENT_LATEST_VERSION
 #define PKG_WEBCLIENT_VER_NUM 0x99999
-#define PKG_USING_WEBNET
-#define WEBNET_PORT 80
-#define WEBNET_CONN_MAX 16
-#define WEBNET_ROOT "/webnet"
-
-/* Select supported modules */
-
-#define WEBNET_CACHE_LEVEL 0
-#define PKG_USING_WEBNET_V203
-#define PKG_WEBNET_VER_NUM 0x20003
 
 /* Wi-Fi */
 
