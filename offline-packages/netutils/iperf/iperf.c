@@ -28,7 +28,7 @@
 #define IPERF_MODE_SERVER   1
 #define IPERF_MODE_CLIENT   2
 
-#define IPERF_GET_THREAD_NAME(th) (th->name)
+#define IPERF_GET_THREAD_NAME(th) (th->parent.name)
 
 typedef struct
 {
