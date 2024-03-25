@@ -35,10 +35,12 @@ env.AppendUnique(CPPDEFINES = [])
 Export('RTT_ROOT')
 Export('rtconfig')
 
-if os.path.exists('libraries'):
-    libraries_path_prefix = 'libraries'
+SDK_ROOT = os.path.abspath('./')
+
+if os.path.exists(SDK_ROOT + '/libraries'):
+    libraries_path_prefix = SDK_ROOT + '/libraries'
 else:
-    libraries_path_prefix = '../../libraries'
+    libraries_path_prefix = os.path.dirname(SDK_ROOT) + '/libraries'
 
 SDK_LIB = libraries_path_prefix
 Export('SDK_LIB')

@@ -8,36 +8,31 @@
  * 2024-03-13   Evlers      first implementation
  */
 
-#include <rtthread.h>
 #include <board.h>
-#include <drv_common.h>
-#include <rtdevice.h>
 
-#define DBG_TAG "board"
-#define DBG_LVL DBG_INFO
-#include <rtdbg.h>
-
-void system_clock_config(int target_freq_mhz)
+/**
+  * @brief System Clock Configuration
+  * @retval None
+  */
+void SystemClock_Config(void)
 {
     RCC_OscInitTypeDef RCC_OscInitStruct = {0};
     RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
     RCC_PeriphCLKInitTypeDef PeriphClkInitStruct = {0};
 
     /** Supply configuration update enable
-     */
+    */
     HAL_PWREx_ConfigSupply(PWR_LDO_SUPPLY);
     /** Configure the main internal regulator output voltage
-     */
+    */
     __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE0);
 
     while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY)) {}
-    /** Macro to configure the PLL clock source
-     */
-    __HAL_RCC_PLL_PLLSOURCE_CONFIG(RCC_PLLSOURCE_HSE);
+
     /** Initializes the RCC Oscillators according to the specified parameters
-     * in the RCC_OscInitTypeDef structure.
-     */
-    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48|RCC_OSCILLATORTYPE_HSE;
+    * in the RCC_OscInitTypeDef structure.
+    */
+    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI48 | RCC_OSCILLATORTYPE_HSE;
     RCC_OscInitStruct.HSEState = RCC_HSE_ON;
     RCC_OscInitStruct.HSI48State = RCC_HSI48_ON;
     RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
@@ -50,15 +45,17 @@ void system_clock_config(int target_freq_mhz)
     RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_2;
     RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
     RCC_OscInitStruct.PLL.PLLFRACN = 0;
+
     if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
     {
         Error_Handler();
     }
+
     /** Initializes the CPU, AHB and APB buses clocks
-     */
-    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                                |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2
-                                |RCC_CLOCKTYPE_D3PCLK1|RCC_CLOCKTYPE_D1PCLK1;
+    */
+    RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_SYSCLK
+                                  | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2
+                                  | RCC_CLOCKTYPE_D3PCLK1 | RCC_CLOCKTYPE_D1PCLK1;
     RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
     RCC_ClkInitStruct.SYSCLKDivider = RCC_SYSCLK_DIV1;
     RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV2;
@@ -71,11 +68,12 @@ void system_clock_config(int target_freq_mhz)
     {
         Error_Handler();
     }
-    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LTDC|RCC_PERIPHCLK_USART3
-                                |RCC_PERIPHCLK_UART4|RCC_PERIPHCLK_SPI4
-                                |RCC_PERIPHCLK_SPI1|RCC_PERIPHCLK_SDMMC
-                                |RCC_PERIPHCLK_ADC|RCC_PERIPHCLK_USB
-                                |RCC_PERIPHCLK_LPTIM1|RCC_PERIPHCLK_FMC;
+
+    PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_LTDC | RCC_PERIPHCLK_USART3
+            | RCC_PERIPHCLK_UART4 | RCC_PERIPHCLK_SPI4
+            | RCC_PERIPHCLK_SPI1 | RCC_PERIPHCLK_SDMMC
+            | RCC_PERIPHCLK_ADC | RCC_PERIPHCLK_USB
+            | RCC_PERIPHCLK_LPTIM1 | RCC_PERIPHCLK_FMC;
     PeriphClkInitStruct.PLL2.PLL2M = 2;
     PeriphClkInitStruct.PLL2.PLL2N = 64;
     PeriphClkInitStruct.PLL2.PLL2P = 2;
@@ -100,85 +98,21 @@ void system_clock_config(int target_freq_mhz)
     PeriphClkInitStruct.UsbClockSelection = RCC_USBCLKSOURCE_HSI48;
     PeriphClkInitStruct.Lptim1ClockSelection = RCC_LPTIM1CLKSOURCE_LSI;
     PeriphClkInitStruct.AdcClockSelection = RCC_ADCCLKSOURCE_PLL2;
+
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
     {
         Error_Handler();
     }
+
     /** Enable USB Voltage detector
-     */
+    */
     HAL_PWREx_EnableUSBVoltageDetector();
 }
-int clock_information(void)
+
+static int vtor_config(void)
 {
-    LOG_D("System Clock information");
-    LOG_D("SYSCLK_Frequency = %d", HAL_RCC_GetSysClockFreq());
-    LOG_D("HCLK_Frequency   = %d", HAL_RCC_GetHCLKFreq());
-    LOG_D("PCLK1_Frequency  = %d", HAL_RCC_GetPCLK1Freq());
-    LOG_D("PCLK2_Frequency  = %d", HAL_RCC_GetPCLK2Freq());
-
-    return RT_EOK;
-}
-INIT_BOARD_EXPORT(clock_information);
-
-void clk_init(char *clk_source, int source_freq, int target_freq)
-{
-    system_clock_config(target_freq);
-}
-
-
-rt_weak void rt_hw_board_init()
-{
-    extern void hw_board_init(char *clock_src, int32_t clock_src_freq, int32_t clock_target_freq);
-
     /* Vector Table Relocation in Internal QSPI_FLASH */
     SCB->VTOR = QSPI_BASE;
-
-    /* Heap initialization */
-#if defined(RT_USING_HEAP)
-    rt_system_heap_init((void *) HEAP_BEGIN, (void *) HEAP_END);
-#endif
-
-    hw_board_init(BSP_CLOCK_SOURCE, BSP_CLOCK_SOURCE_FREQ_MHZ, BSP_CLOCK_SYSTEM_FREQ_MHZ);
-
-    /* Set the shell console output device */
-#if defined(RT_USING_DEVICE) && defined(RT_USING_CONSOLE)
-    rt_console_set_device(RT_CONSOLE_DEVICE_NAME);
-#endif
-
-    /* Board underlying hardware initialization */
-#ifdef RT_USING_COMPONENTS_INIT
-    rt_components_board_init();
-#endif
-
+    return 0;
 }
-
-#ifdef RT_USING_PM
-/**
-  * @brief  Configures system clock after wake-up from STOP: enable HSI, PLL
-  *         and select PLL as system clock source.
-  * @param  None
-  * @retval None
-  */
-void SystemClock_ReConfig(uint8_t mode)
-{
-    switch (mode)
-    {
-    case PM_RUN_MODE_HIGH_SPEED:
-//        SystemClock_480M();
-        break;
-    case PM_RUN_MODE_NORMAL_SPEED:
-//        SystemClock_240M();
-        break;
-    case PM_RUN_MODE_MEDIUM_SPEED:
-//        SystemClock_120M();
-        break;
-    case PM_RUN_MODE_LOW_SPEED:
-//        SystemClock_60M();
-        break;
-    default:
-        break;
-    }
-
-    // SystemClock_MSI_OFF();
-}
-#endif
+INIT_BOARD_EXPORT(vtor_config);

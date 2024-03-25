@@ -5,23 +5,17 @@
 /* Program Entry, set to mark it as "used" and avoid gc */
 MEMORY
 {
-ROM (rx)    : ORIGIN =0x08000000,LENGTH =8192k
-QFLASH (rx) : ORIGIN =0x90000000,LENGTH =8192k
-RAM (rw)    : ORIGIN =0x24000000,LENGTH =512k
+ROM (rx) : ORIGIN =0x90000000,LENGTH =8192k
+RAM (rw) : ORIGIN =0x24000000,LENGTH =512k
+RxDecripSection (rw) : ORIGIN =0x30040000,LENGTH =32k
+TxDecripSection (rw) : ORIGIN =0x30040060,LENGTH =32k
+RxArraySection (rw) : ORIGIN =0x30040200,LENGTH =32k
 }
 ENTRY(Reset_Handler)
-_system_stack_size = 0x200;
+_system_stack_size = 0x400;
 
 SECTIONS
 {
-    .onchip_rom :
-    {
-        . = ALIGN(4);
-        KEEP(*bootloader_img.o(.rodata*))
-        . = ALIGN(4);
-    } > ROM
-
-    
     .text :
     {
         . = ALIGN(4);
@@ -83,7 +77,7 @@ SECTIONS
         . = ALIGN(4);
 
         _etext = .;
-    } > QFLASH = 0
+    } > ROM = 0
 
     /* .ARM.exidx is sorted, so has to go in its own output section.  */
     __exidx_start = .;
@@ -93,7 +87,7 @@ SECTIONS
 
         /* This is used by the startup in order to initialize the .data secion */
         _sidata = .;
-    } > QFLASH
+    } > ROM
     __exidx_end = .;
 
     /* .data section which is used for initialized data */
@@ -119,7 +113,7 @@ SECTIONS
         _edata = . ;
     } >RAM
 
-    .stack : 
+    .stack :
     {
         . = ALIGN(4);
         _sstack = .;
@@ -142,10 +136,37 @@ SECTIONS
         . = ALIGN(4);
         /* This is used by the startup in order to initialize the .bss secion */
         _ebss = . ;
-        
+
         *(.bss.init)
     } > RAM
     __bss_end = .;
+
+    .RxDecripSection (NOLOAD) : ALIGN(4)
+    {
+    . = ALIGN(4);
+    *(.RxDecripSection)
+    *(.RxDecripSection.*)
+    . = ALIGN(4);
+    __RxDecripSection_free__ = .;
+    } > RxDecripSection
+
+    .TxDecripSection (NOLOAD) : ALIGN(4)
+    {
+    . = ALIGN(4);
+    *(.TxDecripSection)
+    *(.TxDecripSection.*)
+    . = ALIGN(4);
+    __TxDecripSection_free__ = .;
+    } > TxDecripSection
+
+    .RxArraySection (NOLOAD) : ALIGN(4)
+    {
+    . = ALIGN(4);
+    *(.RxArraySection)
+    *(.RxArraySection.*)
+    . = ALIGN(4);
+    __RxArraySection_free__ = .;
+    } > RxArraySection
 
     _end = .;
 

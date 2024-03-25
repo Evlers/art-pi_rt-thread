@@ -66,23 +66,28 @@ extern "C"
  *
  */
 
-#ifdef BSP_USING_UART1
-#define BSP_UART1_TX_PIN       "PA9"
-#define BSP_UART1_RX_PIN       "PA10"
+#define STM32_FLASH_START_ADRESS       ROM_START
+#define STM32_FLASH_SIZE               ROM_SIZE
+#define STM32_FLASH_END_ADDRESS        ROM_END
+
+#define STM32_SRAM1_SIZE               RAM_SIZE
+#define STM32_SRAM1_START              RAM_START
+#define STM32_SRAM1_END                RAM_END
+
+#if defined(__ARMCC_VERSION)
+extern int Image$$RW_IRAM1$$ZI$$Limit;
+#define HEAP_BEGIN      (&Image$$RW_IRAM1$$ZI$$Limit)
+#elif __ICCARM__
+#pragma section="CSTACK"
+#define HEAP_BEGIN      (__segment_end("CSTACK"))
+#else
+extern int __bss_end;
+#define HEAP_BEGIN      (&__bss_end)
 #endif
 
-#ifdef BSP_USING_UART4
-#define BSP_UART4_TX_PIN       "PA0"
-#define BSP_UART4_RX_PIN       "PI9"
-#endif
-
-#ifdef BSP_USING_UART6
-#define BSP_UART6_TX_PIN       "PC6"
-#define BSP_UART6_RX_PIN       "PC7"
-#endif
+#define HEAP_END        STM32_SRAM1_END
 
 void SystemClock_Config(void);
-void SystemClock_ReConfig(uint8_t mode);
 
 /*-------------------------- UART CONFIG END --------------------------*/
 

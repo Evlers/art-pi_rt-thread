@@ -10,7 +10,7 @@
 
 #include <rtthread.h>
 #include <rtdevice.h>
-#include "drv_common.h"
+#include "drv_gpio.h"
 
 #define LED_PIN GET_PIN(I, 8)
 
