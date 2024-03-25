@@ -8,6 +8,7 @@
  * 2020-05-23     liuduanfei   first version
  * 2020-08-25     wanghaijing  add sdmmmc2
  * 2023-03-26     wdfk-prog    Distinguish between SDMMC and SDIO drivers
+ * 2024-03-25     Evlers       fixed cache reuse and clock configure issues
  */
 #include "board.h"
 
@@ -27,7 +28,6 @@
 #endif /* DRV_DEBUG */
 #include <rtdbg.h>
 
-static struct stm32_sdio_class sdio_obj;
 static struct rt_mmcsd_host *host1;
 static struct rt_mmcsd_host *host2;
 
@@ -49,11 +49,19 @@ struct rthw_sdio
     struct stm32_sdio_des sdio_des;
     struct rt_event event;
     struct rt_mutex mutex;
+    rt_uint8_t *cache_buf;
     struct sdio_pkg *pkg;
 };
 
+#ifdef BSP_USING_SDIO1
 rt_align(SDIO_ALIGN_LEN)
-static rt_uint8_t cache_buf[SDIO_BUFF_SIZE];
+static rt_uint8_t cache_buf1[SDIO_BUFF_SIZE];
+#endif
+
+#ifdef BSP_USING_SDIO2
+rt_align(SDIO_ALIGN_LEN)
+static rt_uint8_t cache_buf2[SDIO_BUFF_SIZE];
+#endif
 
 /**
   * @brief  This function get order from sdio.
@@ -205,12 +213,12 @@ static void rthw_sdio_wait_completed(struct rthw_sdio *sdio)
     {
         LOG_D("err:0x%08x, %s%s%s%s%s%s%s cmd:%d arg:0x%08x rw:%c len:%d blksize:%d",
               status,
-              status & HW_SDIO_IT_CCRCFAIL  ? "CCRCFAIL "    : "",
-              status & HW_SDIO_IT_DCRCFAIL  ? "DCRCFAIL "    : "",
-              status & HW_SDIO_IT_CTIMEOUT  ? "CTIMEOUT "    : "",
-              status & HW_SDIO_IT_DTIMEOUT  ? "DTIMEOUT "    : "",
-              status & HW_SDIO_IT_TXUNDERR  ? "TXUNDERR "    : "",
-              status & HW_SDIO_IT_RXOVERR   ? "RXOVERR "     : "",
+              status & SDMMC_STA_CCRCFAIL  ? "CCRCFAIL "    : "",
+              status & SDMMC_STA_DCRCFAIL  ? "DCRCFAIL "    : "",
+              status & SDMMC_STA_CTIMEOUT  ? "CTIMEOUT "    : "",
+              status & SDMMC_STA_DTIMEOUT  ? "DTIMEOUT "    : "",
+              status & SDMMC_STA_TXUNDERR  ? "TXUNDERR "    : "",
+              status & SDMMC_STA_RXOVERR   ? "RXOVERR "     : "",
               status == 0                   ? "NULL"         : "",
               cmd->cmd_code,
               cmd->arg,
@@ -268,8 +276,9 @@ static void rthw_sdio_send_command(struct rthw_sdio *sdio, struct sdio_pkg *pkg)
         __HAL_SD_DISABLE_IT(&sdio->sdio_des.hw_sdio, SDMMC_MASK_CMDRENDIE | SDMMC_MASK_CMDSENTIE);
         hsd->DTIMER = HW_SDIO_DATATIMEOUT;
         hsd->DLEN = data->blks * data->blksize;
-        hsd->DCTRL = (get_order(data->blksize) << 4) | (data->flags & DATA_DIR_READ ? SDMMC_DCTRL_DTDIR : 0);
-        hsd->IDMABASE0 = (rt_uint32_t)cache_buf;
+        hsd->DCTRL = (get_order(data->blksize) << 4) | (data->flags & DATA_DIR_READ ? SDMMC_DCTRL_DTDIR : 0) | \
+                                                        (data->flags & DATA_STREAM ? SDMMC_DCTRL_DTMODE_0 : 0);
+        hsd->IDMABASE0 = (rt_uint32_t)sdio->cache_buf;
         hsd->IDMACTRL = SDMMC_IDMA_IDMAEN;
     }
      /* config cmd reg */
@@ -306,7 +315,7 @@ static void rthw_sdio_send_command(struct rthw_sdio *sdio, struct sdio_pkg *pkg)
     {
         if (data->flags & DATA_DIR_READ)
         {
-            rt_memcpy(data->buf, cache_buf, data->blks * data->blksize);
+            rt_memcpy(data->buf, sdio->cache_buf, data->blks * data->blksize);
             SCB_CleanInvalidateDCache();
         }
     }
@@ -340,7 +349,7 @@ static void rthw_sdio_request(struct rt_mmcsd_host *host, struct rt_mmcsd_req *r
 
             if (data->flags & DATA_DIR_WRITE)
             {
-                rt_memcpy(cache_buf, data->buf, size);
+                rt_memcpy(sdio->cache_buf, data->buf, size);
             }
         }
 
@@ -367,14 +376,13 @@ static void rthw_sdio_request(struct rt_mmcsd_host *host, struct rt_mmcsd_req *r
   */
 static void rthw_sdio_iocfg(struct rt_mmcsd_host *host, struct rt_mmcsd_io_cfg *io_cfg)
 {
-    rt_uint32_t temp, clk_src;
     rt_uint32_t clk = io_cfg->clock;
     struct rthw_sdio *sdio = host->private_data;
     SD_HandleTypeDef *hsd = &sdio->sdio_des.hw_sdio;
     SDMMC_InitTypeDef Init = {0};
     rt_uint32_t sdmmc_clk  = sdio->sdio_des.clk_get();
 
-    if (sdmmc_clk < 400 * 1000)
+    if (sdmmc_clk < SD_INIT_FREQ)
     {
         LOG_E("The clock rate is too low! rata:%d", sdmmc_clk);
         return;
@@ -401,7 +409,7 @@ static void rthw_sdio_iocfg(struct rt_mmcsd_host *host, struct rt_mmcsd_io_cfg *
 
     if (sdmmc_clk != 0U)
     {
-        hsd->Init.ClockDiv = sdmmc_clk / (2U * SD_INIT_FREQ);
+        hsd->Init.ClockDiv = sdmmc_clk / (2U * clk);
         /* Configure the SDMMC peripheral */
         Init.ClockEdge           = hsd->Init.ClockEdge;
         Init.ClockPowerSave      = hsd->Init.ClockPowerSave;
@@ -601,6 +609,7 @@ struct rt_mmcsd_host *sdio_host_create(struct stm32_sdio_des *sdio_des)
 #ifdef BSP_USING_SDIO1
     if(sdio_des->hw_sdio.Instance == SDMMC1)
     {
+        sdio->cache_buf = cache_buf1;
         rt_event_init(&sdio->event, "sdio1", RT_IPC_FLAG_FIFO);
         rt_mutex_init(&sdio->mutex, "sdio1", RT_IPC_FLAG_PRIO);
     }
@@ -608,6 +617,7 @@ struct rt_mmcsd_host *sdio_host_create(struct stm32_sdio_des *sdio_des)
 #ifdef BSP_USING_SDIO2
     if(sdio_des->hw_sdio.Instance == SDMMC2)
     {
+        sdio->cache_buf = cache_buf2;
         rt_event_init(&sdio->event, "sdio2", RT_IPC_FLAG_FIFO);
         rt_mutex_init(&sdio->mutex, "sdio2", RT_IPC_FLAG_PRIO);
     }

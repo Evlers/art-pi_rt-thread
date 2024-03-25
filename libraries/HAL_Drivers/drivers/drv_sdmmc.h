@@ -69,14 +69,6 @@ struct stm32_sdio_des
     sdio_clk_get clk_get;
 };
 
-/* stm32 sdio dirver class */
-struct stm32_sdio_class
-{
-    struct stm32_sdio_des *des;
-    const struct stm32_sdio_config *cfg;
-    struct rt_mmcsd_host host;
-};
-
 extern void stm32_mmcsd_change(void);
 
 #endif /* __DRV_SDMMC_H__ */
