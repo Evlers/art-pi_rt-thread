@@ -33,6 +33,9 @@ documentation/html
 #online packages
 packages/
 
+#certificate
+tls_certificate.c
+
 #source insight 4 project files
 *.si4project
 tools/kconfig-frontends/kconfig-mconf
