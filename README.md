@@ -99,6 +99,7 @@ msh />
 如果需要下载在线软件包，则需要先将`source "$PKGS_DIR/Kconfig"`的注释取消，然后开始下载线上软件包操作。<br>
 
 **制作离线软件包**
+- 先将根目录`Kconfig`文件中的`source "$PKGS_DIR/Kconfig"`注释取消
 - 在根目录下打开`env`工具。
 - 输入`menuconfig`命令配置工程，配置好之后保存退出。
 - 输入`pkgs --update`命令下载在线软件包。
