@@ -58,7 +58,7 @@ ART-Pi 是 RT-Thread 团队经过半年的精心准备，专门为嵌入式软�
 ```bash
  \ | /
 - RT -     Thread Operating System
- / | \     5.0.0 build Mar 13 2024 18:17:18
+ / | \     5.0.2 build May 19 2024 18:12:27
  2006 - 2022 Copyright by RT-Thread team
 lwIP-2.0.3 initialized!
 [I/SFUD] Found a Winbond flash chip. Size is 16777216 bytes.
@@ -80,6 +80,8 @@ lwIP-2.0.3 initialized!
 [Flash] EasyFlash V4.1.0 is initialize success.
 [Flash] You can get the latest version on https://github.com/armink/EasyFlash .
 [I/sal.skt] Socket Abstraction Layer initialize success.
+RT-Thread WiFi Host Drivers (WHD)
+You can get the latest version on https://github.com/Evlers/rt-thread_wifi-host-driver
 WLAN MAC Address : 2C:B0:FD:A2:2E:26
 WLAN Firmware    : wl0: Mar 28 2021 22:55:55 version 7.45.98.117 (dc5d9c4 CY) FWID 01-d36e8386
 WLAN CLM         : API: 12.2 Data: 9.10.39 Compiler: 1.29.4 ClmImport: 1.36.3 Creation: 2021-03-28 22:47:33

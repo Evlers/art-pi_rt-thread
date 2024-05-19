@@ -306,6 +306,7 @@
 #define PKG_USING_NETUTILS
 #define PKG_NETUTILS_TFTP
 #define PKG_NETUTILS_IPERF
+#define IPERF_THREAD_STACK_SIZE 2048
 #define PKG_NETUTILS_NETIO
 #define PKG_NETUTILS_NTP
 #define NTP_USING_AUTO_SYNC
@@ -430,7 +431,7 @@
 /* entertainment: terminal games and other interesting software packages */
 
 #define PKG_USING_OPTPARSE
-#define PKG_USING_OPTPARSE_V100
+#define PKG_USING_OPTPARSE_LATEST_VERSION
 
 /* Arduino libraries */
 
@@ -470,9 +471,11 @@
 
 /* Select Root Certificate */
 
+#define PKG_USING_OPTPARSE_V100
+
 /* External Libraries */
 
-#define RT_USING_WHD
+#define PKG_USING_WIFI_HOST_DRIVER
 #define WHD_USING_CHIP_CYW43438
 #define WHD_RESOURCES_IN_EXTERNAL_STORAGE
 #define WHD_RESOURCES_FIRMWARE_NAME "whd_firmware"
@@ -484,8 +487,6 @@
 #define CYBSP_HOST_WAKE_IRQ_PIN 67
 #define CYBSP_HOST_WAKE_IRQ_EVENT_FALL
 #define CYBSP_OOB_INTR_PRIORITY 2
-#define CY_WIFI_USING_THREAD_INIT
-#define CY_WIFI_INIT_THREAD_STACK_SIZE 2048
 #define CY_WIFI_MMCSD_WAIT_TIME 500
 #define SOC_FAMILY_STM32
 #define SOC_SERIES_STM32H7
