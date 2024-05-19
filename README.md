@@ -98,17 +98,19 @@ msh />
 为防止在线包与离线包的配置产生冲突，该工程已经在根目录的`Kconfig`文件中注释了在线包配置的加载。<br>
 如果需要下载在线软件包，则需要先将`source "$PKGS_DIR/Kconfig"`的注释取消，然后开始下载线上软件包操作。<br>
 
-**线上软件包下载**
+**制作离线软件包**
 - 在根目录下打开`env`工具。
 - 输入`menuconfig`命令配置工程，配置好之后保存退出。
 - 输入`pkgs --update`命令下载在线软件包。
 - 将下载的软件包移动到 `offlin-package` 目录中，并删除软件包内的 `.git` 文件夹。
 - 复制`env`工具里面的`packages`目录下对应包的`Kconfig`文件。
 - 完成离线包制作后，再次注释根目录下`Kconfig`文件的`source "$PKGS_DIR/Kconfig"`防止配置冲突。
+- 删除项目中的`packages`目录，防止加载重复的软件包。
 
 **离线包使用**
 - 在根目录下打开`env`工具。
-- 输入`menuconfig`命令配置工程，配置好之后保存退出。
+- 输入`menuconfig`命令配置工程。
+- 进入`RT-Thread offline packages`中配置离线软件包，配置好之后保存退出。
 - 输入`scons --target=vsc/mdk5` 命令重新生成工程。
 
 ## 注意事项
