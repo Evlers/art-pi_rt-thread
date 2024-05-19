@@ -1,0 +1,5 @@
+menu "JSON: JavaScript Object Notation, a lightweight data-interchange format"
+
+source "$OFFLINE_PKGS_DIR/language/JSON/cJSON/Kconfig"
+
+endmenu

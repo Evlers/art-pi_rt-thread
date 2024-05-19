@@ -1,0 +1,5 @@
+menu "tools packages"
+
+source "$OFFLINE_PKGS_DIR/tools/easyflash/Kconfig"
+
+endmenu

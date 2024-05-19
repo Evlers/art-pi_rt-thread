@@ -94,32 +94,34 @@ WHD VERSION      : 3.0.0.22316 : v3.0.0 : ARM CLANG 5060960 : 2023-12-04 07:24:3
 msh />
 ```
 ### 进阶使用
+本项目使用的是离线包的方式。<br>
+为防止在线包与离线包的配置产生冲突，该工程已经在根目录的`Kconfig`文件中注释了在线包配置的加载。<br>
+如果需要下载在线软件包，则需要先将`source "$PKGS_DIR/Kconfig"`的注释取消，然后开始下载线上软件包操作。<br>
 
-1. 在 bsp 下打开 env 工具。
+**线上软件包下载**
+- 在根目录下打开`env`工具。
+- 输入`menuconfig`命令配置工程，配置好之后保存退出。
+- 输入`pkgs --update`命令下载在线软件包。
+- 将下载的软件包移动到 `offlin-package` 目录中，并删除软件包内的 `.git` 文件夹。
+- 复制`env`工具里面的`packages`目录下对应包的`Kconfig`文件。
+- 完成离线包制作后，再次注释根目录下`Kconfig`文件的`source "$PKGS_DIR/Kconfig"`防止配置冲突。
 
-2. 输入`menuconfig`命令配置工程，配置好之后保存退出。
-
-3. 输入`pkgs --update`命令下载在线软件包。
-
-4. 将下载的软件包移动到 `offlin-package` 目录中，并删除软件包内的 `.git` 文件夹。
-
-4. 输入`scons --target=vsc/mdk5` 命令重新生成工程。
+**离线包使用**
+- 在根目录下打开`env`工具。
+- 输入`menuconfig`命令配置工程，配置好之后保存退出。
+- 输入`scons --target=vsc/mdk5` 命令重新生成工程。
 
 ## 注意事项
 
-- 调试串口为串口4 映射说明
+- 调试串口为串口4 映射说明<br>
+    PI9  ------> USART4_RX<br>
+    PA0 ------> USART4_TX <br>
 
-    PI9  ------> USART4_RX
-
-    PA0 ------> USART4_TX 
-
-- Bootloader 损坏 或 缺失
-
+- Bootloader 损坏 或 缺失<br>
     如遇到程序下载后，板子跑不起来的情况，请先通过串口查看复位后bootloader打印信息 “ART-PiBOOT” ，以检查bootloader是否损坏或丢失。若 bootloader 缺失，则需要重新烧写目录下 artpi_bootloader.bin 文件到芯片内部flash；在连接开发板至 PC 后，ART-Pi 会显示为存储设备，直接将 artpi_bootloader.bin 拖入文件管理器中 ART-Pi 目录下即可（类似复制文件）。
 
     此 bin 文件由 [ART-Pi sdk](https://github.com/RT-Thread-Studio/sdk-bsp-stm32h750-realthread-artpi) 下 art_pi_bootloader 示例工程构建生成，生成过程参考 [ART-Pi 开发手册](https://github.com/RT-Thread-Studio/sdk-bsp-stm32h750-realthread-artpi/blob/master/documents/UM5002-RT-Thread%20ART-Pi%20%E5%BC%80%E5%8F%91%E6%89%8B%E5%86%8C.md) ；工程构建后，bin 文件生成在工程目录 Debug 路径下。
     
-- 外部 flash 下载算法
-
+- 外部 flash 下载算法<br>
     参考 [ART-Pi 常见问题说明文档](https://github.com/RT-Thread-Studio/sdk-bsp-stm32h750-realthread-artpi/blob/master/documents/UM5005-RT-Thread%20ART-Pi%20%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E8%A7%A3%E7%AD%94.md) ，解决MDK5无法下载程序的问题。
 

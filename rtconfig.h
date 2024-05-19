@@ -267,7 +267,7 @@
 /* RT-Thread Utestcases */
 
 
-/* RT-Thread online packages */
+/* RT-Thread offline packages */
 
 /* IoT - internet of things */
 
@@ -283,30 +283,12 @@
 #define WEBCLIENT_USING_MBED_TLS
 #define PKG_USING_WEBCLIENT_LATEST_VERSION
 #define PKG_WEBCLIENT_VER_NUM 0x99999
-
-/* Wi-Fi */
-
-/* Marvell WiFi */
-
-
-/* Wiced WiFi */
-
-
-/* CYW43012 WiFi */
-
-
-/* BL808 WiFi */
-
-
-/* CYW43439 WiFi */
-
 #define PKG_USING_NOPOLL
 #define PKG_USING_NOPOLL_EXAMPLE
 #define PKG_USING_NOPOLL_LATEST_VERSION
 #define PKG_USING_NETUTILS
 #define PKG_NETUTILS_TFTP
 #define PKG_NETUTILS_IPERF
-#define IPERF_THREAD_STACK_SIZE 2048
 #define PKG_NETUTILS_NETIO
 #define PKG_NETUTILS_NTP
 #define NTP_USING_AUTO_SYNC
@@ -320,9 +302,6 @@
 #define PKG_NETUTILS_TCPDUMP_DBG
 #define PKG_USING_NETUTILS_LATEST_VERSION
 #define PKG_NETUTILS_VER_NUM 0x99999
-
-/* IoT Cloud */
-
 
 /* security packages */
 
@@ -362,17 +341,6 @@
 #define PKG_USING_CJSON
 #define PKG_USING_CJSON_V1717
 
-/* XML: Extensible Markup Language */
-
-
-/* multimedia packages */
-
-/* LVGL: powerful and easy-to-use embedded GUI library */
-
-
-/* u8g2: a monochrome graphic library */
-
-
 /* tools packages */
 
 #define PKG_USING_EASYFLASH
@@ -385,92 +353,9 @@
 #define PKG_USING_EASYFLASH_V410
 #define PKG_EASYFLASH_VER_NUM 0x40100
 
-/* system packages */
-
-/* enhanced kernel services */
-
-
-/* acceleration: Assembly language or algorithmic acceleration packages */
-
-
-/* CMSIS: ARM Cortex-M Microcontroller Software Interface Standard */
-
-
-/* Micrium: Micrium software products porting for RT-Thread */
-
-
-/* peripheral libraries and drivers */
-
-/* HAL & SDK Drivers */
-
-/* STM32 HAL & SDK Drivers */
-
-
-/* Kendryte SDK */
-
-
-/* sensors drivers */
-
-
-/* touch drivers */
-
-
-/* AI packages */
-
-
-/* Signal Processing and Control Algorithm Packages */
-
-
 /* miscellaneous packages */
 
-/* project laboratory */
-
-/* samples: kernel and components samples */
-
-
-/* entertainment: terminal games and other interesting software packages */
-
 #define PKG_USING_OPTPARSE
-#define PKG_USING_OPTPARSE_LATEST_VERSION
-
-/* Arduino libraries */
-
-
-/* Projects and Demos */
-
-
-/* Sensors */
-
-
-/* Display */
-
-
-/* Timing */
-
-
-/* Data Processing */
-
-
-/* Data Storage */
-
-/* Communication */
-
-
-/* Device Control */
-
-
-/* Other */
-
-
-/* Signal IO */
-
-
-/* Uncategorized */
-
-/* RT-Thread offline packages */
-
-/* Select Root Certificate */
-
 #define PKG_USING_OPTPARSE_V100
 
 /* External Libraries */
