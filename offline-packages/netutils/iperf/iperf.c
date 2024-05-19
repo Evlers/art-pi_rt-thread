@@ -28,7 +28,11 @@
 #define IPERF_MODE_SERVER   1
 #define IPERF_MODE_CLIENT   2
 
+#if (RT_VER_NUM >= 0x50000)
 #define IPERF_GET_THREAD_NAME(th) (th->parent.name)
+#else
+#define IPERF_GET_THREAD_NAME(th) (th->name)
+#endif
 
 typedef struct
 {
@@ -159,7 +163,7 @@ static void iperf_udp_server(void *thread_param)
             data = sentlen * RT_TICK_PER_SECOND / 125 / (tick2 - tick1);
             integer = data/1000;
             decimal = data%1000;
-            LOG_I("%s: %d.%03d0 Mbps! lost:%d total:%d\n", IPERF_GET_THREAD_NAME(tid), integer, decimal, lost, total);
+            LOG_I("%s: %d.%03d0 Mbps! lost:%d total:%d", IPERF_GET_THREAD_NAME(tid), integer, decimal, lost, total);
         }
     }
     rt_free(buffer);
@@ -385,7 +389,7 @@ void iperf_usage(void)
     rt_kprintf("  -h           print this message and quit\n");
     rt_kprintf("  --stop       stop iperf program\n");
     rt_kprintf("  -u           testing UDP protocol\n");
-    rt_kprintf("  -m <time>    the number of multi-threaded\n\n");
+    rt_kprintf("  -m <time>    the number of multi-threaded\n");
     return;
 }
 
@@ -502,7 +506,7 @@ int iperf(int argc, char **argv)
                 }
             }
 
-            tid = rt_thread_create(tid_name, function, RT_NULL, 2048, 20, 100);
+            tid = rt_thread_create(tid_name, function, RT_NULL, IPERF_THREAD_STACK_SIZE, 20, 100);
             if (tid) rt_thread_startup(tid);
         }
     }

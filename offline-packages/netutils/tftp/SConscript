@@ -8,6 +8,6 @@ CPPPATH = [cwd, str(Dir('#'))]
 list = os.listdir(cwd)
 objs = []
 
-group = DefineGroup('netutils', src, depend = ['PKG_NETUTILS_TFTP'], CPPPATH = CPPPATH)
+group = DefineGroup('NetUtils', src, depend = ['PKG_NETUTILS_TFTP'], CPPPATH = CPPPATH)
 
 Return('group')

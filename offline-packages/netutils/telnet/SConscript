@@ -2,6 +2,6 @@ from building import *
 
 src = Glob('*.c')
 
-group = DefineGroup('netutils', src, depend = ['PKG_NETUTILS_TELNET'])
+group = DefineGroup('NetUtils', src, depend = ['PKG_NETUTILS_TELNET'])
 
 Return('group')
