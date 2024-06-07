@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>__STDC_LIMIT_MACROS, RT_USING_ARMLIBC, STM32H750xx, RT_USING_LIBC, __CLK_TCK=RT_TICK_PER_SECOND, __RTTHREAD__, USE_HAL_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\rt-thread\components\dfs\dfs_v1\filesystems\romfs;..\rt-thread\components\net\lwip\port;..\board\port\filesystem;..\libraries\STM32H7xx_HAL\STM32H7xx_HAL_Driver\Inc;..\rt-thread\components\net\sal\include;..\rt-thread\components\dfs\dfs_v1\include;..\rt-thread\components\drivers\include;..\board\port\easyflash;..\rt-thread\components\net\netdev\include;..\libraries\HAL_Drivers\drivers;..\board\port\fal;..\rt-thread\components\drivers\include;..\offline-packages\misc\optparse;..\offline-packages\security\mbedtls\mbedtls\include;..\offline-packages\iot\netutils\ntp;..\rt-thread\components\drivers\include;..\offline-packages\iot\pahomqtt\MQTTClient-RT;..\libraries\wifi-host-driver\porting\inc\hal;..\rt-thread\libcpu\arm\cortex-m7;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\include;..\offline-packages\iot\pahomqtt\MQTTPacket\src;..\rt-thread\components\finsh;..\rt-thread\components\net\lwip\lwip-2.0.3\src\include;..\offline-packages\security\tinycrypt\include;..\board\port\sfud;..\board;..\libraries\HAL_Drivers\drivers\config;..\rt-thread\components\libc\posix\ipc;..\offline-packages\language\JSON\cjson;..\rt-thread\components\libc\compilers\common\extension\fcntl\octal;..\rt-thread\components\drivers\include;..\rt-thread\components\net\sal\impl;..\libraries\wifi-host-driver\porting\inc\bsp;..\board\port\wifi;..\offline-packages\iot\webclient\inc;..\rt-thread\components\libc\compilers\common\extension;..\rt-thread\components\fal\inc;..\libraries\HAL_Drivers\CMSIS\Include;..\rt-thread\components\libc\compilers\common\include;..\rt-thread\components\net\sal\include\socket\sys_socket;..\rt-thread\components\libc\posix\io\epoll;..\offline-packages\iot\netutils\tftp;..\rt-thread\components\libc\posix\io\eventfd;..\rt-thread\libcpu\arm\common;..\offline-packages\security\mbedtls\mbedtls\library;..\rt-thread\components\net\lwip-dhcpd;..\rt-thread\components\utilities\ymodem;..\rt-thread\components\net\lwip\lwip-2.0.3\src\include\ipv4;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\resources\nvram\COMPONENT_43438\COMPONENT_AW-CU427-P;..\offline-packages\tools\easyflash\inc;..\rt-thread\components\drivers\include;..\libraries\wifi-host-driver\porting\inc\rtos;..\libraries\HAL_Drivers;..\rt-thread\components\libc\posix\io\poll;..\rt-thread\components\drivers\spi\sfud\inc;..\applications;..\rt-thread\components\net\lwip\lwip-2.0.3\src\include\netif;..\offline-packages\security\mbedtls\ports\inc;..\rt-thread\components\drivers\include;..\rt-thread\components\dfs\dfs_v1\filesystems\devfs;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\resources\resource_imp;..;..\rt-thread\components\dfs\dfs_v1\filesystems\elmfat;..\libraries\wifi-host-driver\wifi-host-driver;..\rt-thread\include;..\rt-thread\components\net\sal\include\dfs_net;..\libraries\STM32H7xx_HAL\CMSIS\Device\ST\STM32H7xx\Include;..\rt-thread\components\drivers\spi;..\rt-thread\components\drivers\wlan;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\inc;..\offline-packages\iot\nopoll\nopoll;..\rt-thread\components\utilities\resource;..\rt-thread\components\net\sal\include\socket;..\offline-packages\iot\nopoll\sha1;..\rt-thread\components\drivers\include;..\rt-thread\components\drivers\include;..\board\CubeMX_Config\Core\Inc;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\bus_protocols;..\board\port</IncludePath>
+              <IncludePath>..\rt-thread\components\dfs\dfs_v1\include;..\rt-thread\components\net\lwip\lwip-2.0.3\src\include\ipv4;..\libraries\STM32H7xx_HAL\STM32H7xx_HAL_Driver\Inc;..\libraries\wifi-host-driver\wifi-host-driver;..\rt-thread\components\dfs\dfs_v1\filesystems\elmfat;..\offline-packages\iot\webclient\inc;..\rt-thread\libcpu\arm\cortex-m7;..\rt-thread\components\net\lwip-dhcpd;..\rt-thread\components\net\sal\include;..\rt-thread\components\libc\posix\ipc;..\board;..\rt-thread\components\net\netdev\include;..;..\rt-thread\components\utilities\resource;..\rt-thread\components\libc\compilers\common\extension;..\rt-thread\components\utilities\ymodem;..\offline-packages\tools\easyflash\inc;..\rt-thread\components\drivers\include;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\resources\nvram\COMPONENT_43438\COMPONENT_AW-CU427-P;..\rt-thread\components\drivers\include;..\offline-packages\iot\nopoll\nopoll;..\rt-thread\include;..\board\port;..\rt-thread\components\drivers\spi\sfud\inc;..\offline-packages\misc\optparse;..\rt-thread\components\dfs\dfs_v1\filesystems\devfs;..\offline-packages\iot\pahomqtt\MQTTClient-RT;..\rt-thread\components\net\sal\include\socket\sys_socket;..\offline-packages\iot\netutils\ntp;..\offline-packages\security\mbedtls\mbedtls\library;..\applications;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\include;..\rt-thread\components\libc\compilers\common\extension\fcntl\octal;..\board\port\fal;..\rt-thread\components\drivers\include;..\rt-thread\components\net\sal\impl;..\rt-thread\components\fal\inc;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src;..\rt-thread\components\net\sal\include\socket;..\offline-packages\iot\pahomqtt\MQTTPacket\src;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\resources\resource_imp;..\rt-thread\components\drivers\include;..\board\port\filesystem;..\libraries\HAL_Drivers;..\rt-thread\libcpu\arm\common;..\rt-thread\components\dfs\dfs_v1\filesystems\romfs;..\rt-thread\components\drivers\include;..\rt-thread\components\drivers\include;..\libraries\wifi-host-driver\porting\inc\bsp;..\libraries\HAL_Drivers\drivers;..\rt-thread\components\drivers\wlan;..\offline-packages\security\mbedtls\ports\inc;..\rt-thread\components\net\lwip\lwip-2.0.3\src\include;..\libraries\STM32H7xx_HAL\CMSIS\Device\ST\STM32H7xx\Include;..\rt-thread\components\drivers\spi;..\rt-thread\components\libc\posix\io\poll;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\bus_protocols;..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\inc;..\rt-thread\components\drivers\include;..\offline-packages\security\tinycrypt\include;..\offline-packages\security\mbedtls\mbedtls\include;..\board\port\wifi;..\libraries\wifi-host-driver\porting\inc\hal;..\offline-packages\iot\nopoll\sha1;..\rt-thread\components\net\lwip\lwip-2.0.3\src\include\netif;..\rt-thread\components\finsh;..\rt-thread\components\drivers\include;..\board\CubeMX_Config\Core\Inc;..\libraries\wifi-host-driver\porting\inc\rtos;..\offline-packages\language\JSON\cjson;..\rt-thread\components\net\lwip\port;..\board\port\sfud;..\offline-packages\iot\netutils\tftp;..\rt-thread\components\net\sal\include\dfs_net;..\libraries\HAL_Drivers\drivers\config;..\libraries\HAL_Drivers\CMSIS\Include;..\rt-thread\components\libc\posix\io\eventfd;..\rt-thread\components\libc\compilers\common\include;..\rt-thread\components\libc\posix\io\epoll;..\board\port\easyflash</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -393,14 +393,14 @@
           <GroupName>cjson</GroupName>
           <Files>
             <File>
-              <FileName>cJSON_Utils.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\language\JSON\cjson\cJSON_Utils.c</FilePath>
-            </File>
-            <File>
               <FileName>cJSON.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\offline-packages\language\JSON\cjson\cJSON.c</FilePath>
+            </File>
+            <File>
+              <FileName>cJSON_Utils.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\language\JSON\cjson\cJSON_Utils.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2279,34 +2279,9 @@
           <GroupName>easyflash</GroupName>
           <Files>
             <File>
-              <FileName>ef_env_legacy.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\tools\easyflash\src\ef_env_legacy.c</FilePath>
-            </File>
-            <File>
-              <FileName>ef_env_legacy_wl.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\tools\easyflash\src\ef_env_legacy_wl.c</FilePath>
-            </File>
-            <File>
               <FileName>ef_utils.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\offline-packages\tools\easyflash\src\ef_utils.c</FilePath>
-            </File>
-            <File>
-              <FileName>ef_cmd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\tools\easyflash\src\ef_cmd.c</FilePath>
-            </File>
-            <File>
-              <FileName>ef_iap.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\tools\easyflash\src\ef_iap.c</FilePath>
-            </File>
-            <File>
-              <FileName>ef_log.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\tools\easyflash\src\ef_log.c</FilePath>
             </File>
             <File>
               <FileName>ef_env.c</FileName>
@@ -2317,6 +2292,31 @@
               <FileName>easyflash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\offline-packages\tools\easyflash\src\easyflash.c</FilePath>
+            </File>
+            <File>
+              <FileName>ef_log.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\tools\easyflash\src\ef_log.c</FilePath>
+            </File>
+            <File>
+              <FileName>ef_env_legacy.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\tools\easyflash\src\ef_env_legacy.c</FilePath>
+            </File>
+            <File>
+              <FileName>ef_iap.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\tools\easyflash\src\ef_iap.c</FilePath>
+            </File>
+            <File>
+              <FileName>ef_env_legacy_wl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\tools\easyflash\src\ef_env_legacy_wl.c</FilePath>
+            </File>
+            <File>
+              <FileName>ef_cmd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\tools\easyflash\src\ef_cmd.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2334,19 +2334,9 @@
           <GroupName>Fal</GroupName>
           <Files>
             <File>
-              <FileName>fal_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\rt-thread\components\fal\src\fal_flash.c</FilePath>
-            </File>
-            <File>
               <FileName>fal_partition.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\rt-thread\components\fal\src\fal_partition.c</FilePath>
-            </File>
-            <File>
-              <FileName>fal_flash_sfud_port.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\rt-thread\components\fal\samples\porting\fal_flash_sfud_port.c</FilePath>
             </File>
             <File>
               <FileName>fal_rtt.c</FileName>
@@ -2357,6 +2347,16 @@
               <FileName>fal.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\rt-thread\components\fal\src\fal.c</FilePath>
+            </File>
+            <File>
+              <FileName>fal_flash_sfud_port.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rt-thread\components\fal\samples\porting\fal_flash_sfud_port.c</FilePath>
+            </File>
+            <File>
+              <FileName>fal_flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\rt-thread\components\fal\src\fal_flash.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -2884,9 +2884,304 @@
           <GroupName>mbedtls</GroupName>
           <Files>
             <File>
+              <FileName>des.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\des.c</FilePath>
+            </File>
+            <File>
+              <FileName>sha256_alt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\sha256_alt.c</FilePath>
+            </File>
+            <File>
+              <FileName>pkcs5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pkcs5.c</FilePath>
+            </File>
+            <File>
+              <FileName>chacha20.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\chacha20.c</FilePath>
+            </File>
+            <File>
+              <FileName>ccm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ccm.c</FilePath>
+            </File>
+            <File>
+              <FileName>arc4_alt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\arc4_alt.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509write_csr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509write_csr.c</FilePath>
+            </File>
+            <File>
+              <FileName>cipher.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\cipher.c</FilePath>
+            </File>
+            <File>
+              <FileName>padlock.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\padlock.c</FilePath>
+            </File>
+            <File>
+              <FileName>sha256.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\sha256.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509_crt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509_crt.c</FilePath>
+            </File>
+            <File>
+              <FileName>chachapoly.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\chachapoly.c</FilePath>
+            </File>
+            <File>
+              <FileName>sha512_alt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\sha512_alt.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_its_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_its_file.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509_create.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509_create.c</FilePath>
+            </File>
+            <File>
+              <FileName>dhm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\dhm.c</FilePath>
+            </File>
+            <File>
+              <FileName>pkparse.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pkparse.c</FilePath>
+            </File>
+            <File>
+              <FileName>tls_certificate.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\tls_certificate.c</FilePath>
+            </File>
+            <File>
+              <FileName>hkdf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\hkdf.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509_crl.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509_crl.c</FilePath>
+            </File>
+            <File>
+              <FileName>asn1write.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\asn1write.c</FilePath>
+            </File>
+            <File>
+              <FileName>ecdh.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ecdh.c</FilePath>
+            </File>
+            <File>
+              <FileName>tls_client.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\tls_client.c</FilePath>
+            </File>
+            <File>
+              <FileName>pk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pk.c</FilePath>
+            </File>
+            <File>
+              <FileName>pkwrite.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pkwrite.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto_storage.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_storage.c</FilePath>
+            </File>
+            <File>
+              <FileName>cmac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\cmac.c</FilePath>
+            </File>
+            <File>
+              <FileName>asn1parse.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\asn1parse.c</FilePath>
+            </File>
+            <File>
+              <FileName>hmac_drbg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\hmac_drbg.c</FilePath>
+            </File>
+            <File>
+              <FileName>mps_trace.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\mps_trace.c</FilePath>
+            </File>
+            <File>
+              <FileName>tls_hardware.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\tls_hardware.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto_client.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_client.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_tls.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_tls.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto_mac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_mac.c</FilePath>
+            </File>
+            <File>
+              <FileName>ecjpake.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ecjpake.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto_driver_wrappers.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_driver_wrappers.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509.c</FilePath>
+            </File>
+            <File>
+              <FileName>certs.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\certs.c</FilePath>
+            </File>
+            <File>
+              <FileName>md5_alt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\md5_alt.c</FilePath>
+            </File>
+            <File>
+              <FileName>rsa.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\rsa.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_msg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_msg.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_cli.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_cli.c</FilePath>
+            </File>
+            <File>
+              <FileName>des_alt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\des_alt.c</FilePath>
+            </File>
+            <File>
+              <FileName>pk_wrap.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pk_wrap.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto_cipher.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_cipher.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509_csr.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509_csr.c</FilePath>
+            </File>
+            <File>
+              <FileName>pem.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pem.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_srv.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_srv.c</FilePath>
+            </File>
+            <File>
+              <FileName>cipher_wrap.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\cipher_wrap.c</FilePath>
+            </File>
+            <File>
+              <FileName>ecp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ecp.c</FilePath>
+            </File>
+            <File>
+              <FileName>gcm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\gcm.c</FilePath>
+            </File>
+            <File>
               <FileName>memory_buffer_alloc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\memory_buffer_alloc.c</FilePath>
+            </File>
+            <File>
+              <FileName>rsa_alt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\rsa_alt.c</FilePath>
+            </File>
+            <File>
+              <FileName>rsa_internal.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\rsa_internal.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_ciphersuites.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_ciphersuites.c</FilePath>
+            </File>
+            <File>
+              <FileName>aes.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\aes.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\platform.c</FilePath>
+            </File>
+            <File>
+              <FileName>havege.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\havege.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto.c</FilePath>
+            </File>
+            <File>
+              <FileName>sha512.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\sha512.c</FilePath>
             </File>
             <File>
               <FileName>xtea.c</FileName>
@@ -2899,274 +3194,9 @@
               <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ctr_drbg.c</FilePath>
             </File>
             <File>
-              <FileName>psa_crypto_slot_management.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_slot_management.c</FilePath>
-            </File>
-            <File>
-              <FileName>psa_crypto_aead.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_aead.c</FilePath>
-            </File>
-            <File>
-              <FileName>certs.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\certs.c</FilePath>
-            </File>
-            <File>
-              <FileName>des.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\des.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssl_tls.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_tls.c</FilePath>
-            </File>
-            <File>
-              <FileName>des_alt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\des_alt.c</FilePath>
-            </File>
-            <File>
-              <FileName>pkwrite.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pkwrite.c</FilePath>
-            </File>
-            <File>
-              <FileName>asn1parse.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\asn1parse.c</FilePath>
-            </File>
-            <File>
-              <FileName>sha256.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\sha256.c</FilePath>
-            </File>
-            <File>
-              <FileName>chachapoly.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\chachapoly.c</FilePath>
-            </File>
-            <File>
-              <FileName>ecp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ecp.c</FilePath>
-            </File>
-            <File>
-              <FileName>x509_create.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509_create.c</FilePath>
-            </File>
-            <File>
-              <FileName>ecp_curves.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ecp_curves.c</FilePath>
-            </File>
-            <File>
-              <FileName>sha512.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\sha512.c</FilePath>
-            </File>
-            <File>
-              <FileName>arc4_alt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\arc4_alt.c</FilePath>
-            </File>
-            <File>
-              <FileName>constant_time.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\constant_time.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssl_cli.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_cli.c</FilePath>
-            </File>
-            <File>
-              <FileName>aria.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\aria.c</FilePath>
-            </File>
-            <File>
               <FileName>nist_kw.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\nist_kw.c</FilePath>
-            </File>
-            <File>
-              <FileName>version_features.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\version_features.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssl_ciphersuites.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_ciphersuites.c</FilePath>
-            </File>
-            <File>
-              <FileName>rsa_internal.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\rsa_internal.c</FilePath>
-            </File>
-            <File>
-              <FileName>ccm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ccm.c</FilePath>
-            </File>
-            <File>
-              <FileName>dhm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\dhm.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssl_cache.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_cache.c</FilePath>
-            </File>
-            <File>
-              <FileName>psa_crypto_storage.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_storage.c</FilePath>
-            </File>
-            <File>
-              <FileName>aesni.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\aesni.c</FilePath>
-            </File>
-            <File>
-              <FileName>hkdf.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\hkdf.c</FilePath>
-            </File>
-            <File>
-              <FileName>ecjpake.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ecjpake.c</FilePath>
-            </File>
-            <File>
-              <FileName>md2.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\md2.c</FilePath>
-            </File>
-            <File>
-              <FileName>psa_crypto_se.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_se.c</FilePath>
-            </File>
-            <File>
-              <FileName>sha1_alt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\sha1_alt.c</FilePath>
-            </File>
-            <File>
-              <FileName>mps_reader.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\mps_reader.c</FilePath>
-            </File>
-            <File>
-              <FileName>pkparse.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pkparse.c</FilePath>
-            </File>
-            <File>
-              <FileName>oid.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\oid.c</FilePath>
-            </File>
-            <File>
-              <FileName>entropy_poll.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\entropy_poll.c</FilePath>
-            </File>
-            <File>
-              <FileName>timing.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\timing.c</FilePath>
-            </File>
-            <File>
-              <FileName>padlock.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\padlock.c</FilePath>
-            </File>
-            <File>
-              <FileName>tls_net.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\tls_net.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssl_srv.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_srv.c</FilePath>
-            </File>
-            <File>
-              <FileName>ecdsa.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ecdsa.c</FilePath>
-            </File>
-            <File>
-              <FileName>psa_crypto_client.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_client.c</FilePath>
-            </File>
-            <File>
-              <FileName>psa_crypto_mac.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_mac.c</FilePath>
-            </File>
-            <File>
-              <FileName>aes_alt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\aes_alt.c</FilePath>
-            </File>
-            <File>
-              <FileName>psa_its_file.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_its_file.c</FilePath>
-            </File>
-            <File>
-              <FileName>chacha20.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\chacha20.c</FilePath>
-            </File>
-            <File>
-              <FileName>x509_csr.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509_csr.c</FilePath>
-            </File>
-            <File>
-              <FileName>platform_util.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\platform_util.c</FilePath>
-            </File>
-            <File>
-              <FileName>base64.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\base64.c</FilePath>
-            </File>
-            <File>
-              <FileName>gcm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\gcm.c</FilePath>
-            </File>
-            <File>
-              <FileName>pem.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pem.c</FilePath>
-            </File>
-            <File>
-              <FileName>sha256_alt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\sha256_alt.c</FilePath>
-            </File>
-            <File>
-              <FileName>error.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\error.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssl_cookie.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_cookie.c</FilePath>
             </File>
             <File>
               <FileName>entropy.c</FileName>
@@ -3174,44 +3204,14 @@
               <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\entropy.c</FilePath>
             </File>
             <File>
-              <FileName>tls_hardware.c</FileName>
+              <FileName>psa_crypto_ecp.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\tls_hardware.c</FilePath>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_ecp.c</FilePath>
             </File>
             <File>
-              <FileName>psa_crypto_cipher.c</FileName>
+              <FileName>threading.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_cipher.c</FilePath>
-            </File>
-            <File>
-              <FileName>psa_crypto.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto.c</FilePath>
-            </File>
-            <File>
-              <FileName>pk.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pk.c</FilePath>
-            </File>
-            <File>
-              <FileName>arc4.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\arc4.c</FilePath>
-            </File>
-            <File>
-              <FileName>md5.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\md5.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssl_ticket.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_ticket.c</FilePath>
-            </File>
-            <File>
-              <FileName>version.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\version.c</FilePath>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\threading.c</FilePath>
             </File>
             <File>
               <FileName>ripemd160.c</FileName>
@@ -3219,9 +3219,109 @@
               <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ripemd160.c</FilePath>
             </File>
             <File>
-              <FileName>cipher.c</FileName>
+              <FileName>aria.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\cipher.c</FilePath>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\aria.c</FilePath>
+            </File>
+            <File>
+              <FileName>md4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\md4.c</FilePath>
+            </File>
+            <File>
+              <FileName>poly1305.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\poly1305.c</FilePath>
+            </File>
+            <File>
+              <FileName>aesni.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\aesni.c</FilePath>
+            </File>
+            <File>
+              <FileName>error.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\error.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_ticket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_ticket.c</FilePath>
+            </File>
+            <File>
+              <FileName>constant_time.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\constant_time.c</FilePath>
+            </File>
+            <File>
+              <FileName>md.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\md.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_tls13_keys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_tls13_keys.c</FilePath>
+            </File>
+            <File>
+              <FileName>base64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\base64.c</FilePath>
+            </File>
+            <File>
+              <FileName>md2.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\md2.c</FilePath>
+            </File>
+            <File>
+              <FileName>entropy_poll.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\entropy_poll.c</FilePath>
+            </File>
+            <File>
+              <FileName>timing_alt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\timing_alt.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform_util.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\platform_util.c</FilePath>
+            </File>
+            <File>
+              <FileName>ssl_cache.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_cache.c</FilePath>
+            </File>
+            <File>
+              <FileName>tls_net.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\tls_net.c</FilePath>
+            </File>
+            <File>
+              <FileName>x509write_crt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509write_crt.c</FilePath>
+            </File>
+            <File>
+              <FileName>arc4.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\arc4.c</FilePath>
+            </File>
+            <File>
+              <FileName>ecp_curves.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ecp_curves.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto_hash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_hash.c</FilePath>
+            </File>
+            <File>
+              <FileName>timing.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\timing.c</FilePath>
             </File>
             <File>
               <FileName>blowfish.c</FileName>
@@ -3234,29 +3334,9 @@
               <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\debug.c</FilePath>
             </File>
             <File>
-              <FileName>threading.c</FileName>
+              <FileName>md5.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\threading.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssl_tls13_keys.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_tls13_keys.c</FilePath>
-            </File>
-            <File>
-              <FileName>poly1305.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\poly1305.c</FilePath>
-            </File>
-            <File>
-              <FileName>hmac_drbg.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\hmac_drbg.c</FilePath>
-            </File>
-            <File>
-              <FileName>x509.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509.c</FilePath>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\md5.c</FilePath>
             </File>
             <File>
               <FileName>pkcs11.c</FileName>
@@ -3264,24 +3344,9 @@
               <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pkcs11.c</FilePath>
             </File>
             <File>
-              <FileName>sha512_alt.c</FileName>
+              <FileName>sha1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\sha512_alt.c</FilePath>
-            </File>
-            <File>
-              <FileName>x509_crl.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509_crl.c</FilePath>
-            </File>
-            <File>
-              <FileName>platform.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\platform.c</FilePath>
-            </File>
-            <File>
-              <FileName>pk_wrap.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pk_wrap.c</FilePath>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\sha1.c</FilePath>
             </File>
             <File>
               <FileName>bignum.c</FileName>
@@ -3289,124 +3354,24 @@
               <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\bignum.c</FilePath>
             </File>
             <File>
-              <FileName>sha1.c</FileName>
+              <FileName>ecdsa.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\sha1.c</FilePath>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ecdsa.c</FilePath>
             </File>
             <File>
-              <FileName>md4.c</FileName>
+              <FileName>sha1_alt.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\md4.c</FilePath>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\sha1_alt.c</FilePath>
             </File>
             <File>
-              <FileName>x509write_csr.c</FileName>
+              <FileName>ssl_cookie.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509write_csr.c</FilePath>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_cookie.c</FilePath>
             </File>
             <File>
-              <FileName>tls_client.c</FileName>
+              <FileName>psa_crypto_aead.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\tls_client.c</FilePath>
-            </File>
-            <File>
-              <FileName>timing_alt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\timing_alt.c</FilePath>
-            </File>
-            <File>
-              <FileName>cipher_wrap.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\cipher_wrap.c</FilePath>
-            </File>
-            <File>
-              <FileName>psa_crypto_driver_wrappers.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_driver_wrappers.c</FilePath>
-            </File>
-            <File>
-              <FileName>aes.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\aes.c</FilePath>
-            </File>
-            <File>
-              <FileName>x509write_crt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509write_crt.c</FilePath>
-            </File>
-            <File>
-              <FileName>md.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\md.c</FilePath>
-            </File>
-            <File>
-              <FileName>rsa_alt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\rsa_alt.c</FilePath>
-            </File>
-            <File>
-              <FileName>pkcs12.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pkcs12.c</FilePath>
-            </File>
-            <File>
-              <FileName>rsa.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\rsa.c</FilePath>
-            </File>
-            <File>
-              <FileName>cmac.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\cmac.c</FilePath>
-            </File>
-            <File>
-              <FileName>ecdh.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ecdh.c</FilePath>
-            </File>
-            <File>
-              <FileName>x509_crt.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\x509_crt.c</FilePath>
-            </File>
-            <File>
-              <FileName>tls_certificate.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\tls_certificate.c</FilePath>
-            </File>
-            <File>
-              <FileName>ssl_msg.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\ssl_msg.c</FilePath>
-            </File>
-            <File>
-              <FileName>pkcs5.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pkcs5.c</FilePath>
-            </File>
-            <File>
-              <FileName>psa_crypto_ecp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_ecp.c</FilePath>
-            </File>
-            <File>
-              <FileName>asn1write.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\asn1write.c</FilePath>
-            </File>
-            <File>
-              <FileName>havege.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\havege.c</FilePath>
-            </File>
-            <File>
-              <FileName>mps_trace.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\mps_trace.c</FilePath>
-            </File>
-            <File>
-              <FileName>psa_crypto_hash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_hash.c</FilePath>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_aead.c</FilePath>
             </File>
             <File>
               <FileName>camellia.c</FileName>
@@ -3414,14 +3379,49 @@
               <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\camellia.c</FilePath>
             </File>
             <File>
+              <FileName>oid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\oid.c</FilePath>
+            </File>
+            <File>
+              <FileName>pkcs12.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\pkcs12.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto_slot_management.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_slot_management.c</FilePath>
+            </File>
+            <File>
+              <FileName>version_features.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\version_features.c</FilePath>
+            </File>
+            <File>
+              <FileName>mps_reader.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\mps_reader.c</FilePath>
+            </File>
+            <File>
+              <FileName>aes_alt.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\ports\src\aes_alt.c</FilePath>
+            </File>
+            <File>
+              <FileName>psa_crypto_se.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_se.c</FilePath>
+            </File>
+            <File>
               <FileName>psa_crypto_rsa.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\psa_crypto_rsa.c</FilePath>
             </File>
             <File>
-              <FileName>md5_alt.c</FileName>
+              <FileName>version.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\mbedtls\ports\src\md5_alt.c</FilePath>
+              <FilePath>..\offline-packages\security\mbedtls\mbedtls\library\version.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4227,9 +4227,9 @@
           <GroupName>paho-mqtt</GroupName>
           <Files>
             <File>
-              <FileName>MQTTDeserializePublish.c</FileName>
+              <FileName>MQTTUnsubscribeClient.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTDeserializePublish.c</FilePath>
+              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTUnsubscribeClient.c</FilePath>
             </File>
             <File>
               <FileName>MQTTConnectServer.c</FileName>
@@ -4237,24 +4237,9 @@
               <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTConnectServer.c</FilePath>
             </File>
             <File>
-              <FileName>MQTTUnsubscribeClient.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTUnsubscribeClient.c</FilePath>
-            </File>
-            <File>
               <FileName>mqtt_sample.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\offline-packages\iot\pahomqtt\samples\mqtt_sample.c</FilePath>
-            </File>
-            <File>
-              <FileName>paho_mqtt_pipe.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\iot\pahomqtt\MQTTClient-RT\paho_mqtt_pipe.c</FilePath>
-            </File>
-            <File>
-              <FileName>MQTTUnsubscribeServer.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTUnsubscribeServer.c</FilePath>
             </File>
             <File>
               <FileName>MQTTSerializePublish.c</FileName>
@@ -4262,19 +4247,14 @@
               <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTSerializePublish.c</FilePath>
             </File>
             <File>
-              <FileName>MQTTSubscribeServer.c</FileName>
+              <FileName>MQTTDeserializePublish.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTSubscribeServer.c</FilePath>
+              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTDeserializePublish.c</FilePath>
             </File>
             <File>
-              <FileName>MQTTPacket.c</FileName>
+              <FileName>paho_mqtt_pipe.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTPacket.c</FilePath>
-            </File>
-            <File>
-              <FileName>MQTTSubscribeClient.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTSubscribeClient.c</FilePath>
+              <FilePath>..\offline-packages\iot\pahomqtt\MQTTClient-RT\paho_mqtt_pipe.c</FilePath>
             </File>
             <File>
               <FileName>MQTTFormat.c</FileName>
@@ -4282,9 +4262,29 @@
               <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTFormat.c</FilePath>
             </File>
             <File>
+              <FileName>MQTTPacket.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTPacket.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTSubscribeServer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTSubscribeServer.c</FilePath>
+            </File>
+            <File>
               <FileName>MQTTConnectClient.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTConnectClient.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTSubscribeClient.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTSubscribeClient.c</FilePath>
+            </File>
+            <File>
+              <FileName>MQTTUnsubscribeServer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\iot\pahomqtt\MQTTPacket\src\MQTTUnsubscribeServer.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4357,9 +4357,14 @@
           <GroupName>tinycrypt</GroupName>
           <Files>
             <File>
-              <FileName>tiny_sha2.c</FileName>
+              <FileName>tiny_md5.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\tinycrypt\src\tiny_sha2.c</FilePath>
+              <FilePath>..\offline-packages\security\tinycrypt\src\tiny_md5.c</FilePath>
+            </File>
+            <File>
+              <FileName>tiny_base64.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\security\tinycrypt\src\tiny_base64.c</FilePath>
             </File>
             <File>
               <FileName>tiny_aes.c</FileName>
@@ -4372,14 +4377,9 @@
               <FilePath>..\offline-packages\security\tinycrypt\src\tiny_sha1.c</FilePath>
             </File>
             <File>
-              <FileName>tiny_md5.c</FileName>
+              <FileName>tiny_sha2.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\tinycrypt\src\tiny_md5.c</FilePath>
-            </File>
-            <File>
-              <FileName>tiny_base64.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\security\tinycrypt\src\tiny_base64.c</FilePath>
+              <FilePath>..\offline-packages\security\tinycrypt\src\tiny_sha2.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4402,14 +4402,14 @@
           <GroupName>webclient</GroupName>
           <Files>
             <File>
-              <FileName>webclient_file.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\offline-packages\iot\webclient\src\webclient_file.c</FilePath>
-            </File>
-            <File>
               <FileName>webclient.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\offline-packages\iot\webclient\src\webclient.c</FilePath>
+            </File>
+            <File>
+              <FileName>webclient_file.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\offline-packages\iot\webclient\src\webclient_file.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -4417,49 +4417,9 @@
           <GroupName>whd</GroupName>
           <Files>
             <File>
-              <FileName>whd_sdpcm.c</FileName>
+              <FileName>whd_ap.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_sdpcm.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_flowring.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_flowring.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_rtos.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\porting\src\rtos\whd_rtos.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_wifi_p2p.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_wifi_p2p.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_cdc_bdc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_cdc_bdc.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_network_if.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_network_if.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_proto.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_proto.c</FilePath>
-            </File>
-            <File>
-              <FileName>download.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\porting\src\resources\download.c</FilePath>
-            </File>
-            <File>
-              <FileName>resources.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\porting\src\resources\resources.c</FilePath>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_ap.c</FilePath>
             </File>
             <File>
               <FileName>whd_utils.c</FileName>
@@ -4467,54 +4427,9 @@
               <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_utils.c</FilePath>
             </File>
             <File>
-              <FileName>whd_wifi_api.c</FileName>
+              <FileName>whd_wifi_p2p.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_wifi_api.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_ring.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_ring.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_management.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_management.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_ap.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_ap.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_bus_common.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\bus_protocols\whd_bus_common.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_clm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_clm.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_wlan.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\porting\src\wlan\whd_wlan.c</FilePath>
-            </File>
-            <File>
-              <FileName>cybsp.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\porting\src\bsp\cybsp.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_bus_sdio_protocol.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\bus_protocols\whd_bus_sdio_protocol.c</FilePath>
-            </File>
-            <File>
-              <FileName>cyhal_sdio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\porting\src\hal\cyhal_sdio.c</FilePath>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_wifi_p2p.c</FilePath>
             </File>
             <File>
               <FileName>whd_logging.c</FileName>
@@ -4522,54 +4437,24 @@
               <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_logging.c</FilePath>
             </File>
             <File>
-              <FileName>whd_commonring.c</FileName>
+              <FileName>download.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_commonring.c</FilePath>
+              <FilePath>..\libraries\wifi-host-driver\porting\src\resources\download.c</FilePath>
             </File>
             <File>
-              <FileName>whd_debug.c</FileName>
+              <FileName>whd_rtos.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_debug.c</FilePath>
+              <FilePath>..\libraries\wifi-host-driver\porting\src\rtos\whd_rtos.c</FilePath>
             </File>
             <File>
-              <FileName>whd_wifi.c</FileName>
+              <FileName>whd_wifi_api.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_wifi.c</FilePath>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_wifi_api.c</FilePath>
             </File>
             <File>
-              <FileName>whd_chip.c</FileName>
+              <FileName>whd_sdpcm.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_chip.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_resource_if.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_resource_if.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_thread.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_thread.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_buffer_api.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_buffer_api.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_events.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_events.c</FilePath>
-            </File>
-            <File>
-              <FileName>whd_bus.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\bus_protocols\whd_bus.c</FilePath>
-            </File>
-            <File>
-              <FileName>cyhal_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\libraries\wifi-host-driver\porting\src\hal\cyhal_gpio.c</FilePath>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_sdpcm.c</FilePath>
             </File>
             <File>
               <FileName>whd_msgbuf_txrx.c</FileName>
@@ -4582,9 +4467,124 @@
               <FilePath>..\libraries\wifi-host-driver\porting\src\bsp\cy_network_buffer.c</FilePath>
             </File>
             <File>
+              <FileName>whd_clm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_clm.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_flowring.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_flowring.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_bus_common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\bus_protocols\whd_bus_common.c</FilePath>
+            </File>
+            <File>
               <FileName>whd_chip_constants.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_chip_constants.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_network_if.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_network_if.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_chip.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_chip.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_commonring.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_commonring.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_cdc_bdc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_cdc_bdc.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_thread.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_thread.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_bus_sdio_protocol.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\bus_protocols\whd_bus_sdio_protocol.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_resource_if.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_resource_if.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_debug.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_debug.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_proto.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_proto.c</FilePath>
+            </File>
+            <File>
+              <FileName>resources.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\porting\src\resources\resources.c</FilePath>
+            </File>
+            <File>
+              <FileName>cyhal_sdio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\porting\src\hal\cyhal_sdio.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_events.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_events.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_management.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_management.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_bus.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\bus_protocols\whd_bus.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_wifi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_wifi.c</FilePath>
+            </File>
+            <File>
+              <FileName>cyhal_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\porting\src\hal\cyhal_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_buffer_api.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_buffer_api.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_ring.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\wifi-host-driver\WiFi_Host_Driver\src\whd_ring.c</FilePath>
+            </File>
+            <File>
+              <FileName>cybsp.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\porting\src\bsp\cybsp.c</FilePath>
+            </File>
+            <File>
+              <FileName>whd_wlan.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\wifi-host-driver\porting\src\wlan\whd_wlan.c</FilePath>
             </File>
           </Files>
         </Group>
