@@ -9,8 +9,25 @@ LR_IROM1 0x90000000 0x00800000  {    ; load region size_region
    .ANY (+RO)
    .ANY (+XO)
   }
-  RW_IRAM1 0x24000000 0x00080000  {  ; AXI SRAM 512K
+
+  RW_IRAM1 0x24000000 0x00080000  {  ; AXI SRAM 512K  200MHz
    .ANY (+RW +ZI)
+  }
+
+  RW_ITCM 0x00000000 0x00010000  {  ; ITCM 128K  400MHz
+   tcp.o (+RO)
+   tcp_in.o (+RO)
+   tcp_out.o (+RO)
+   memp.o (+RO)
+   ethernetif.o (+RO)
+
+   cyhal_gpio.o (+RO)
+   cyhal_sdio.o (+RO)
+   whd_network_if.o (+RO)
+  }
+
+  RW_DTCM 0x20000000 0x00020000  {  ; DTCM 128K  400MHz
+   memp.o (+RW +ZI)
   }
 }
 
