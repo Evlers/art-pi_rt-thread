@@ -5,9 +5,9 @@
  *
  * Change Logs:
  * Date         Author      Notes
- * 2024-03-13   Evlers      first implementation
+ * 2024-01-08   Evlers      first implementation
+ * 2024-06-11   Evlers      fix an exception caused by reading a nonexistent environment variable
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <rtthread.h>
@@ -24,7 +24,7 @@
 
 static int read_cfg(void *buff, int len)
 {
-    size_t saved_len;
+    size_t saved_len = 0;
 
     ef_get_env_blob("wlan_cfg_info", buff, len, &saved_len);
     if (saved_len == 0)
@@ -37,8 +37,8 @@ static int read_cfg(void *buff, int len)
 
 static int get_len(void)
 {
-    int len;
-    size_t saved_len;
+    int len = 0;
+    size_t saved_len = 0;
 
     ef_get_env_blob("wlan_cfg_len", &len, sizeof(len), &saved_len);
     if (saved_len == 0)
