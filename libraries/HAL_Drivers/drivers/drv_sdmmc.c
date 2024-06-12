@@ -9,6 +9,7 @@
  * 2020-08-25     wanghaijing  add sdmmmc2
  * 2023-03-26     wdfk-prog    Distinguish between SDMMC and SDIO drivers
  * 2024-03-25     Evlers       fixed cache reuse and clock configure issues
+ * 2024-06-12     Evlers       specify the address and size to perform dcache invalidate
  */
 #include "board.h"
 
@@ -270,7 +271,14 @@ static void rthw_sdio_send_command(struct rthw_sdio *sdio, struct sdio_pkg *pkg)
     /* data pre configuration */
     if (data != RT_NULL)
     {
-        SCB_CleanInvalidateDCache();
+        if (data->flags & DATA_DIR_WRITE)
+        {
+            SCB_CleanDCache_by_Addr((uint32_t*)sdio->cache_buf, data->blks * data->blksize);
+        }
+        else
+        {
+            SCB_InvalidateDCache_by_Addr((uint32_t*)sdio->cache_buf, data->blks * data->blksize + 32);
+        }
 
         reg_cmd |= SDMMC_CMD_CMDTRANS;
         __HAL_SD_DISABLE_IT(&sdio->sdio_des.hw_sdio, SDMMC_MASK_CMDRENDIE | SDMMC_MASK_CMDSENTIE);
@@ -315,8 +323,8 @@ static void rthw_sdio_send_command(struct rthw_sdio *sdio, struct sdio_pkg *pkg)
     {
         if (data->flags & DATA_DIR_READ)
         {
+            SCB_CleanInvalidateDCache_by_Addr((uint32_t*)((uint32_t)sdio->cache_buf & ~(32U - 1U)), data->blks * data->blksize + 32U);
             rt_memcpy(data->buf, sdio->cache_buf, data->blks * data->blksize);
-            SCB_CleanInvalidateDCache();
         }
     }
 }
