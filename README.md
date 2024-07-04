@@ -85,7 +85,7 @@ You can get the latest version on https://github.com/Evlers/rt-thread_wifi-host-
 WLAN MAC Address : 2C:B0:FD:A2:2E:26
 WLAN Firmware    : wl0: Mar 28 2021 22:55:55 version 7.45.98.117 (dc5d9c4 CY) FWID 01-d36e8386
 WLAN CLM         : API: 12.2 Data: 9.10.39 Compiler: 1.29.4 ClmImport: 1.36.3 Creation: 2021-03-28 22:47:33
-WHD VERSION      : 3.0.0.22316 : v3.0.0 : ARM CLANG 5060960 : 2023-12-04 07:24:34 -0600
+WHD VERSION      : 3.1.0.23284 : v3.1.0 : ARM CLANG 5060960 : 2024-03-21 22:57:11 +0800
 [I/WLAN.dev] wlan init success
 [I/WLAN.lwip] eth device init ok name:w0
 [I/WLAN.dev] wlan init success
@@ -99,13 +99,14 @@ msh />
 如果需要下载在线软件包，则需要先将`source "$PKGS_DIR/Kconfig"`的注释取消，然后开始下载线上软件包操作。<br>
 
 **制作离线软件包**
-- 先将根目录`Kconfig`文件中的`source "$PKGS_DIR/Kconfig"`注释取消
-- 在根目录下打开`env`工具。
-- 输入`menuconfig`命令配置工程，配置好之后保存退出。
-- 输入`pkgs --update`命令下载在线软件包。
-- 将下载的软件包移动到 `offlin-package` 目录中，并删除软件包内的 `.git` 文件夹。
-- 复制`env`工具里面的`packages`目录下对应包的`Kconfig`文件。
+- 先将根目录`Kconfig`文件中的`source "$PKGS_DIR/Kconfig"`注释取消，使用在线包的`Kconfig`文件。
+- 注释掉根目录`Kconfig`文件中的`source "$OFFLINE_PKGS_DIR/Kconfig"`，防止与在线包的配置冲突。
+- 在根目录下打开`env`工具，输入`menuconfig`命令配置工程，选中了需要的在线包之后保存退出。
+- 输入`pkgs --update`命令下载刚刚选中的在线软件包。
+- 将下载的`软件包`移动到 `offlin-package` 目录中，并删除软件包内的 `.git` 文件夹。
+- 复制`env`工具里面的`packages`目录下对应包的`Kconfig`文件到软件包中，并在上一级目录加入该软件包的`Kconfig`路径。
 - 完成离线包制作后，再次注释根目录下`Kconfig`文件的`source "$PKGS_DIR/Kconfig"`防止配置冲突。
+- 再次取消根目录下`Kconfig`文件的`source "$OFFLINE_PKGS_DIR/Kconfig"`注释，使用离线包的`Kconfig`文件。
 - 删除项目中的`packages`目录，防止加载重复的软件包。
 
 **离线包使用**
