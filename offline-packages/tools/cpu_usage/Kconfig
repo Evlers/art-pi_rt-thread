@@ -1,0 +1,5 @@
+
+# Kconfig file for package cpu_usage
+menuconfig PKG_USING_CPU_USAGE
+    bool "CPUU: CPU usage statistics tool."
+    default n
