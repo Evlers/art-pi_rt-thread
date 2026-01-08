@@ -15,13 +15,9 @@ config PKGS_DIR
     option env="PKGS_ROOT"
     default "packages"
 
-config OFFLINE_PKGS_DIR
-    string
-    default "offline-packages"
-
 source "$RTT_DIR/Kconfig"
 # source "$PKGS_DIR/Kconfig"
-source "$OFFLINE_PKGS_DIR/Kconfig"
+source "offline-packages/Kconfig"
 source "$RTT_DIR/../libraries/Kconfig"
 source "$RTT_DIR/../board/Kconfig"
 

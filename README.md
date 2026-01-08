@@ -100,13 +100,13 @@ msh />
 
 **制作离线软件包**
 - 先将根目录`Kconfig`文件中的`source "$PKGS_DIR/Kconfig"`注释取消，使用在线包的`Kconfig`文件。
-- 注释掉根目录`Kconfig`文件中的`source "$OFFLINE_PKGS_DIR/Kconfig"`，防止与在线包的配置冲突。
+- 注释掉根目录`Kconfig`文件中的`source "offline-packages/Kconfig"`，防止与在线包的配置冲突。
 - 在根目录下打开`env`工具，输入`menuconfig`命令配置工程，选中了需要的在线包之后保存退出。
 - 输入`pkgs --update`命令下载刚刚选中的在线软件包。
 - 将下载的`软件包`移动到 `offlin-package` 目录中，并删除软件包内的 `.git` 文件夹。
 - 复制`env`工具里面的`packages`目录下对应包的`Kconfig`文件到软件包中，并在上一级目录加入该软件包的`Kconfig`路径。
 - 完成离线包制作后，再次注释根目录下`Kconfig`文件的`source "$PKGS_DIR/Kconfig"`防止配置冲突。
-- 再次取消根目录下`Kconfig`文件的`source "$OFFLINE_PKGS_DIR/Kconfig"`注释，使用离线包的`Kconfig`文件。
+- 再次取消根目录下`Kconfig`文件的`source "offline-packages/Kconfig"`注释，使用离线包的`Kconfig`文件。
 - 删除项目中的`packages`目录，防止加载重复的软件包。
 
 **离线包使用**

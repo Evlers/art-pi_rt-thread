@@ -1,8 +1,8 @@
 menu "IoT - internet of things"
 
-source "$OFFLINE_PKGS_DIR/iot/pahomqtt/Kconfig"
-source "$OFFLINE_PKGS_DIR/iot/webclient/Kconfig"
-source "$OFFLINE_PKGS_DIR/iot/nopoll/Kconfig"
-source "$OFFLINE_PKGS_DIR/iot/netutils/Kconfig"
+source "offline-packages/iot/pahomqtt/Kconfig"
+source "offline-packages/iot/webclient/Kconfig"
+source "offline-packages/iot/nopoll/Kconfig"
+source "offline-packages/iot/netutils/Kconfig"
 
 endmenu
