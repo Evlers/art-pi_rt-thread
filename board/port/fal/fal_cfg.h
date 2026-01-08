@@ -44,8 +44,9 @@ extern struct fal_flash_dev nor_flash0;
 /*      magic_word          partition name      flash name          offset                  size            reserved        */
 #define FAL_PART_TABLE                                                                                                      \
 {                                                                                                                           \
-    { FAL_PART_MAGIC_WORD,  "whd_firmware", NOR_FLASH_DEV_NAME,              0,              448 * 1024,        0 },        \
-    { FAL_PART_MAGIC_WORD,  "whd_clm",      NOR_FLASH_DEV_NAME,     448 * 1024,               32 * 1024,        0 },        \
+    { FAL_PART_MAGIC_WORD,  "whd_firmware", NOR_FLASH_DEV_NAME,              0,                448*1024,        0 },        \
+    { FAL_PART_MAGIC_WORD,  "whd_clm",      NOR_FLASH_DEV_NAME,       448*1024,                 32*1024,        0 },        \
+    { FAL_PART_MAGIC_WORD,  "whd_nvram",    NOR_FLASH_DEV_NAME,       480*1024,                 32*1024,        0 },        \
     { FAL_PART_MAGIC_WORD,  "bt_image",     NOR_FLASH_DEV_NAME,       512*1024,                512*1024,        0 },        \
     { FAL_PART_MAGIC_WORD,  "download",     NOR_FLASH_DEV_NAME,      1024*1024,             2*1024*1024,        0 },        \
     { FAL_PART_MAGIC_WORD,  "easyflash",    NOR_FLASH_DEV_NAME,    3*1024*1024,             1*1024*1024,        0 },        \

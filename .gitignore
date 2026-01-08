@@ -67,3 +67,5 @@ JLinkLog.txt
 JlinkSettings.ini
 DebugConfig/
 RTE/
+
+!resources/*

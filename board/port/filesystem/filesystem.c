@@ -43,6 +43,10 @@ const struct romfs_dirent romfs_root = {
 
 #ifdef BSP_USING_SDCARD_FS
 
+#if defined(RT_USING_WIFI_HOST_DRIVER) && defined(WHD_RESOURCES_IN_EXTERNAL_STORAGE_FS)
+struct rt_completion fs_mount_comp;
+#endif /* RT_USING_WIFI_HOST_DRIVER */
+
 /* SD Card hot plug detection pin */
 #define SD_CHECK_PIN GET_PIN(D, 5)
 
@@ -62,6 +66,10 @@ static void _sdcard_mount(void)
     {
         if (dfs_mount("sd0", "/sdcard", "elm", 0, 0) == RT_EOK)
         {
+#if defined(RT_USING_WIFI_HOST_DRIVER) && defined(WHD_RESOURCES_IN_EXTERNAL_STORAGE_FS)
+            rt_kprintf("Filesystem mounted, notifying waiting tasks...\n");
+            rt_completion_done(&fs_mount_comp);
+#endif /* RT_USING_WIFI_HOST_DRIVER */
             LOG_I("sd card mount to '/sdcard'");
         }
         else
@@ -151,6 +159,25 @@ int mount_init(void)
 #endif
     return RT_EOK;
 }
-INIT_APP_EXPORT(mount_init);
+INIT_ENV_EXPORT(mount_init);
+
+#if defined(RT_USING_WIFI_HOST_DRIVER) && defined(WHD_RESOURCES_IN_EXTERNAL_STORAGE_FS)
+#ifdef BSP_USING_SDCARD_FS
+static int _whd_fs_mount_init(void)
+{
+    rt_completion_init(&fs_mount_comp);
+    return 0;
+}
+INIT_BOARD_EXPORT(_whd_fs_mount_init);
+
+void whd_wait_fs_mount (void)
+{
+    rt_kprintf("Waiting for filesystem to mount...\n");
+    rt_completion_wait(&fs_mount_comp, RT_WAITING_FOREVER);
+}
+#else
+#error "Please define BSP_USING_SDCARD in your board config to enable sdcard mount feature."
+#endif /* BSP_USING_SDCARD */
+#endif /* RT_USING_WIFI_HOST_DRIVER */
 
 #endif /* BSP_USING_FS */

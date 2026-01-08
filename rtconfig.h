@@ -1,11 +1,6 @@
 #ifndef RT_CONFIG_H__
 #define RT_CONFIG_H__
 
-/* Automatically generated file; DO NOT EDIT. */
-/* RT-Thread Configuration */
-
-#define OFFLINE_PKGS_DIR "offline-packages"
-
 /* RT-Thread Kernel */
 
 #define RT_NAME_MAX 16
@@ -26,6 +21,7 @@
 /* kservice optimization */
 
 #define RT_KSERVICE_USING_STDLIB
+/* end of kservice optimization */
 #define RT_USING_DEBUG
 
 /* Inter-Thread communication */
@@ -35,6 +31,7 @@
 #define RT_USING_EVENT
 #define RT_USING_MAILBOX
 #define RT_USING_MESSAGEQUEUE
+/* end of Inter-Thread communication */
 
 /* Memory Management */
 
@@ -44,6 +41,7 @@
 #define RT_USING_MEMHEAP_AS_HEAP
 #define RT_USING_MEMHEAP_AUTO_BINDING
 #define RT_USING_HEAP
+/* end of Memory Management */
 
 /* Kernel Device Object */
 
@@ -51,7 +49,9 @@
 #define RT_USING_CONSOLE
 #define RT_CONSOLEBUF_SIZE 128
 #define RT_CONSOLE_DEVICE_NAME "uart4"
+/* end of Kernel Device Object */
 #define RT_VER_NUM 0x50002
+/* end of RT-Thread Kernel */
 #define RT_USING_CACHE
 #define RT_USING_HW_ATOMIC
 #define RT_USING_CPU_FFS
@@ -104,8 +104,10 @@
 #define RT_DFS_ELM_MAX_SECTOR_SIZE 4096
 #define RT_DFS_ELM_REENTRANT
 #define RT_DFS_ELM_MUTEX_TIMEOUT 3000
+/* end of elm-chan's FatFs, Generic FAT Filesystem Module */
 #define RT_USING_DFS_DEVFS
 #define RT_USING_DFS_ROMFS
+/* end of DFS: device virtual file system */
 #define RT_USING_FAL
 #define FAL_DEBUG_CONFIG
 #define FAL_DEBUG 1
@@ -168,6 +170,8 @@
 
 /* Using USB */
 
+/* end of Using USB */
+/* end of Device Drivers */
 
 /* C/C++ and POSIX layer */
 
@@ -179,6 +183,8 @@
 #define RT_LIBC_TZ_DEFAULT_HOUR 8
 #define RT_LIBC_TZ_DEFAULT_MIN 0
 #define RT_LIBC_TZ_DEFAULT_SEC 0
+/* end of Timezone and Daylight Saving Time */
+/* end of ISO-ANSI C layer */
 
 /* POSIX (Portable Operating System Interface) layer */
 
@@ -195,6 +201,9 @@
 
 /* Socket is in the 'Network' category */
 
+/* end of Interprocess Communication (IPC) */
+/* end of POSIX (Portable Operating System Interface) layer */
+/* end of C/C++ and POSIX layer */
 
 /* Network */
 
@@ -204,6 +213,7 @@
 /* Docking with protocol stacks */
 
 #define SAL_USING_LWIP
+/* end of Docking with protocol stacks */
 #define SAL_USING_POSIX
 #define RT_USING_NETDEV
 #define NETDEV_USING_IFCONFIG
@@ -228,6 +238,7 @@
 #define RT_LWIP_IPADDR "192.168.1.30"
 #define RT_LWIP_GWADDR "192.168.1.1"
 #define RT_LWIP_MSKADDR "255.255.255.0"
+/* end of Static IPv4 Address */
 #define RT_LWIP_UDP
 #define RT_LWIP_TCP
 #define RT_LWIP_RAW
@@ -258,14 +269,18 @@
 #define LWIP_USING_DHCPD
 #define DHCPD_SERVER_IP "192.168.169.1"
 #define DHCPD_USING_ROUTER
+/* end of Network */
 
 /* Utilities */
 
 #define RT_USING_RYM
 #define RT_USING_RESOURCE_ID
+/* end of Utilities */
+/* end of RT-Thread Components */
 
 /* RT-Thread Utestcases */
 
+/* end of RT-Thread Utestcases */
 
 /* RT-Thread offline packages */
 
@@ -288,6 +303,7 @@
 #define NETUTILS_NTP_HOSTNAME3 "edu.ntp.org.cn"
 #define PKG_USING_NETUTILS_LATEST_VERSION
 #define PKG_NETUTILS_VER_NUM 0x99999
+/* end of IoT - internet of things */
 
 /* security packages */
 
@@ -299,11 +315,14 @@
 #define TINY_CRYPT_AES_ROM_TABLES
 #define TINY_CRYPT_SHA1
 #define TINY_CRYPT_SHA256
+/* end of security packages */
 
 /* language packages */
 
 /* JSON: JavaScript Object Notation, a lightweight data-interchange format */
 
+/* end of JSON: JavaScript Object Notation, a lightweight data-interchange format */
+/* end of language packages */
 
 /* tools packages */
 
@@ -316,25 +335,63 @@
 #define PKG_EASYFLASH_DEBUG
 #define PKG_USING_EASYFLASH_V410
 #define PKG_EASYFLASH_VER_NUM 0x40100
+/* end of tools packages */
 
 /* miscellaneous packages */
 
+/* end of miscellaneous packages */
+/* end of RT-Thread offline packages */
 
 /* External Libraries */
 
-#define PKG_USING_WIFI_HOST_DRIVER
-#define WHD_USING_CHIP_CYW43438
-#define WHD_RESOURCES_IN_EXTERNAL_STORAGE
-#define WHD_RESOURCES_FIRMWARE_NAME "whd_firmware"
-#define WHD_RESOURCES_CLM_NAME "whd_clm"
-#define WHD_RESOURCES_BLOCK_SIZE 1024
+#define RT_USING_WIFI_HOST_DRIVER
+
+/* WHD Configuration */
+
+#define WHD_SET_COUNTRY_FROM_HOST
+#define WHD_COUNTRY_CODE "AU"
+#define WHD_COUNTRY_CODE_REVISION 0
+
+/* WHD Thread Configuration */
+
 #define CY_WIFI_WHD_THREAD_PRIORITY 8
 #define CY_WIFI_WHD_THREAD_STACK_SIZE 5120
+/* end of WHD Thread Configuration */
+
+/* WHD Resources Configuration */
+
+#define WHD_RESOURCES_IN_EXTERNAL_STORAGE_FAL
+#define WHD_RESOURCES_FIRMWARE_PART_NAME "whd_firmware"
+#define WHD_RESOURCES_CLM_PART_NAME "whd_clm"
+#define WHD_RESOURCES_NVRAM_PART_NAME "whd_nvram"
+#define WHD_RESOURCES_BLOCK_SIZE 1024
+/* end of WHD Resources Configuration */
+/* end of WHD Configuration */
+
+/* Hardware Configuration */
+
+#define WHD_USING_CHIP_CYW43438
+#define WHD_USING_WIFI5
+
+/* Pin Configuration */
+
 #define CYBSP_USING_PIN_NAME
 #define CYBSP_REG_ON_PIN_NAME "PC.13"
 #define CYBSP_HOST_WAKE_IRQ_PIN_NAME "PE.3"
 #define CYBSP_HOST_WAKE_IRQ_EVENT_FALL
 #define CYBSP_OOB_INTR_PRIORITY 2
+/* end of Pin Configuration */
+/* end of Hardware Configuration */
+
+/* Porting options */
+
+#define WHD_PORTING_BSP
+#define WHD_PORTING_HAL
+#define WHD_PORTING_RTOS
+#define WHD_USE_CUSTOM_MALLOC_IMPL
+/* end of Porting options */
+#define WHD_LOG_LEVEL_ERROR
+/* end of External Libraries */
 #define SOC_FAMILY_STM32
 #define SOC_SERIES_STM32H7
 
@@ -344,6 +401,7 @@
 
 /* Board extended module */
 
+/* end of Board extended module */
 
 /* Onboard Peripheral */
 
@@ -352,6 +410,7 @@
 #define BSP_USING_FS
 #define BSP_USING_SDCARD_FS
 #define BSP_USING_SPI_FLASH_FS
+/* end of Onboard Peripheral */
 
 /* On-chip Peripheral */
 
@@ -363,6 +422,8 @@
 #define BSP_USING_SDIO
 #define BSP_USING_SDIO1
 #define BSP_USING_SDIO2
+/* end of On-chip Peripheral */
+/* end of Hardware Drivers Config */
 #define FIRMWARE_EXEC_USING_QSPI_FLASH
 #define RT_STUDIO_BUILT_IN
 
