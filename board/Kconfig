@@ -281,6 +281,14 @@ menu "On-chip Peripheral"
             config BSP_USING_SDIO2
                 bool "Enable SDIO2"
                 default n
+
+            config SDIO_USING_1_BIT
+                bool "Enable SDIO 1 Bit Mode"
+                default n
+
+            config SDIO_USING_CARD_INT
+                bool "Enable SDIO Card Interrupt"
+                default n
         endif
 
     config BSP_USING_SDRAM

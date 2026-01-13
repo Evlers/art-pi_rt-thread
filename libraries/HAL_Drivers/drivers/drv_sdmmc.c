@@ -227,7 +227,7 @@ static void rthw_sdio_wait_completed(struct rthw_sdio *sdio)
               data ? data->blks * data->blksize : 0,
               data ? data->blksize : 0
              );
-      }
+    }
 }
 
 /**
@@ -281,26 +281,31 @@ static void rthw_sdio_send_command(struct rthw_sdio *sdio, struct sdio_pkg *pkg)
         }
 
         reg_cmd |= SDMMC_CMD_CMDTRANS;
-        __HAL_SD_DISABLE_IT(&sdio->sdio_des.hw_sdio, SDMMC_MASK_CMDRENDIE | SDMMC_MASK_CMDSENTIE);
+        __HAL_SD_DISABLE_IT(&sdio->sdio_des.hw_sdio, SDMMC_MASK_CMDRENDIE | SDMMC_MASK_CMDSENTIE | SDMMC_MASK_SDIOITIE);
         hsd->DTIMER = HW_SDIO_DATATIMEOUT;
         hsd->DLEN = data->blks * data->blksize;
         hsd->DCTRL = (get_order(data->blksize) << 4) | (data->flags & DATA_DIR_READ ? SDMMC_DCTRL_DTDIR : 0) | \
                                                         (data->flags & DATA_STREAM ? SDMMC_DCTRL_DTMODE_0 : 0);
+        if (sdio->host->flags & MMCSD_SUP_SDIO_IRQ)
+            hsd->DCTRL |= SDMMC_DCTRL_SDIOEN;
         hsd->IDMABASE0 = (rt_uint32_t)sdio->cache_buf;
         hsd->IDMACTRL = SDMMC_IDMA_IDMAEN;
     }
-     /* config cmd reg */
-   if (resp_type(cmd) == RESP_NONE)
-       reg_cmd |= SDMMC_RESPONSE_NO;
-   else if (resp_type(cmd) == RESP_R2)
-       reg_cmd |= SDMMC_RESPONSE_LONG;
-   else
-       reg_cmd |= SDMMC_RESPONSE_SHORT;
+    /* config cmd reg */
+    if (resp_type(cmd) == RESP_NONE)
+        reg_cmd |= SDMMC_RESPONSE_NO;
+    else if (resp_type(cmd) == RESP_R2)
+        reg_cmd |= SDMMC_RESPONSE_LONG;
+    else
+        reg_cmd |= SDMMC_RESPONSE_SHORT;
 
     hsd->ARG = cmd->arg;
     hsd->CMD = reg_cmd;
     /* wait completed */
     rthw_sdio_wait_completed(sdio);
+
+    if (sdio->host->flags & MMCSD_SUP_SDIO_IRQ)
+        __HAL_SD_ENABLE_IT(&sdio->sdio_des.hw_sdio, SDMMC_MASK_SDIOITIE);
 
     /* Waiting for data to be sent to completion */
     if (data != RT_NULL)
@@ -523,25 +528,20 @@ static void rthw_sdio_iocfg(struct rt_mmcsd_host *host, struct rt_mmcsd_io_cfg *
 }
 
 /**
-  * @brief  This function update sdio interrupt.
+  * @brief  This function sdio card interrupt enable.
   * @param  host    rt_mmcsd_host
   * @param  enable
   * @retval None
   */
-void rthw_sdio_irq_update(struct rt_mmcsd_host *host, rt_int32_t enable)
+static void rthw_enable_sdio_irq(struct rt_mmcsd_host *host, rt_int32_t enable)
 {
-    struct rthw_sdio *sdio = host->private_data;
+    RT_UNUSED(host);
+    RT_UNUSED(enable);
 
-    if (enable)
-    {
-        LOG_D("enable sdio irq");
-        __HAL_SD_ENABLE_IT(&sdio->sdio_des.hw_sdio, SDMMC_IT_SDIOIT);
-    }
-    else
-    {
-        LOG_D("disable sdio irq");
-        __HAL_SD_ENABLE_IT(&sdio->sdio_des.hw_sdio, SDMMC_IT_SDIOIT);
-    }
+    /* Under normal circumstances, the interrupt does not handle any transactions; instead, it give a semaphore.
+     * So, in mmcsd, it is not advisable to re-enable the card interrupt before the transaction has been fully processed.
+     * This interruption will be enable again after the next data transmission is completed.
+     */
 }
 
 /**
@@ -565,9 +565,22 @@ void rthw_sdio_irq_process(struct rt_mmcsd_host *host)
     struct rthw_sdio *sdio = host->private_data;
     rt_uint32_t intstatus = sdio->sdio_des.hw_sdio.Instance->STA;
 
+    /* handle sdio card interrupt */
+    if (intstatus & SDMMC_FLAG_SDIOIT)
+    {
+        __HAL_SD_DISABLE_IT(&sdio->sdio_des.hw_sdio, SDMMC_MASK_SDIOITIE);
+        /* Notify the upper layer about sdio card interrupt */
+        sdio_irq_wakeup(sdio->host);
+    }
+
     /* clear irq flag*/
     __HAL_SD_CLEAR_FLAG(&sdio->sdio_des.hw_sdio, intstatus);
-    rt_event_send(&sdio->event, intstatus);
+
+    /* notify event */
+    if (intstatus & (~SDMMC_STA_SDIOIT))
+    {
+        rt_event_send(&sdio->event, intstatus & (~SDMMC_STA_SDIOIT));
+    }
 }
 
 static const struct rt_mmcsd_host_ops ops =
@@ -575,7 +588,7 @@ static const struct rt_mmcsd_host_ops ops =
     rthw_sdio_request,
     rthw_sdio_iocfg,
     rthw_sd_detect,
-    rthw_sdio_irq_update,
+    rthw_enable_sdio_irq,
 };
 
 /**
@@ -637,10 +650,12 @@ struct rt_mmcsd_host *sdio_host_create(struct stm32_sdio_des *sdio_des)
     host->freq_max = SDIO_MAX_FREQ;
     host->valid_ocr = 0X00FFFF80;/* The voltage range supported is 1.65v-3.6v */
 
+    host->flags = MMCSD_MUTBLKWRITE | MMCSD_SUP_HIGHSPEED;
 #ifndef SDIO_USING_1_BIT
-    host->flags = MMCSD_BUSWIDTH_4 | MMCSD_MUTBLKWRITE | MMCSD_SUP_HIGHSPEED;
-#else
-    host->flags = MMCSD_MUTBLKWRITE | MMCSD_SUP_SDIO_IRQ;
+    host->flags |= MMCSD_BUSWIDTH_4;
+#endif
+#ifdef SDIO_USING_CARD_INT
+    host->flags |= MMCSD_SUP_SDIO_IRQ;
 #endif
     host->max_seg_size = SDIO_BUFF_SIZE;
     host->max_dma_segs = 1;
@@ -650,8 +665,6 @@ struct rt_mmcsd_host *sdio_host_create(struct stm32_sdio_des *sdio_des)
     /* link up host and sdio */
     sdio->host = host;
     host->private_data = sdio;
-
-    rthw_sdio_irq_update(host, 1);
 
     /* ready to change */
     mmcsd_change(host);
